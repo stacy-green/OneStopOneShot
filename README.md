@@ -1,2 +1,5 @@
 # OneStopOneShot
-This is my coding bootcamp capstone project. 
+
+#### This is my capstone project for PDX Code Guild Full Stack Bootcamp.
+
+
