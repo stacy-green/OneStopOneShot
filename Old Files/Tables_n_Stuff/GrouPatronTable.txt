@@ -1,0 +1,68 @@
+https://blackcitadelrpg.com/group-patrons-5e/
+By Harry
+
+Academy
+
+"Aberrant Zoology. You undertake expeditions to document, capture, and explain beings antithetical to the natural order.", 
+"Arcanodynamics. You investigate the ways magic underpins existence, exploring its flows and seeking ways to harness its nexuses.", 
+"Forbidden History. You reveal the lost truths of the world’s darkest ages, pursuing the history of purposefully hidden or taboo eras.", 
+"Cryptogeography. You search for proof of a hidden land or that the world isn’t structured as commonly assumed.", 
+"Restorative Antiquarianism. You track clues leading to plundered artifacts and then restore them to their rightful owners.", 
+"Evolutionary Divinity. You dare to explore what no mortal was meant to know: the origins of divinity.", 
+
+Ancient being
+
+"Elder Dragon. An ancient dragon seeks knowledge or power. It wishes to gather greater wealth for its hoard, its ambitions expanding in its advancing years.", 
+"Lich. An undead spellcaster of immense power employs your group. Its interests are strangely diverse and seemingly benign. Perhaps it’s not as evil as conventional adventuring wisdom suggests?", 
+"Bound Fiend. This fiend is bound to a location, either in its true form or as a possessing spirit. Whether trapped in an unbreakable circle of binding sigils or sealed as a spirit within a gigantic statue, the fiend’s influence drives your group.", 
+"Guardian Celestial. An angel or another powerful celestial takes an interest in a specific region of the Material Plane. It cultivates a network of mortal informants and agents to serve its agenda.", 
+"The Endless. This person has lived many lifetimes because they can’t die—at least not permanently. No matter the cause of their demise, they return. To all appearances, they are alive and mortal, but they control the amassed resources of an immortal.", 
+"Primal Manifestation. Its existence defies mortal understanding; the being simply is. It could be a primordial force of nature awakened to self-awareness that now inhabits the landscape or an alien intellect that whispers through proxies, omens, and idols."
+
+Aristocrat
+
+"Local Lord. Convinced that power and prestige lie just around the corner, this minor lordling grasps for every opportunity to climb the ranks.", 
+"Merchant Mastermind. Reputation, wealth, and power are one and the same for the head of a family with world-spanning business holdings.", 
+"Nomadic Princeling. Nothing is more appealing to this princeling than treasure. Their sprawling merchant caravan trails behind their palanquin as far as the eye can see.", 
+"Double Dealer. The leader of a noble family has turned against their nation, secretly opposing their liege for personal gain or ethical reasons.", 
+"Ambitious Entrepreneur. The sole heir of a vast fortune, this entrepreneur seeks allies to expand their wealth in a new business on the international, global, or planar stage.", 
+"Future Ruler. This young noble is destined to rule, but currently their whims are fickle and dangerous."
+
+Syndicate
+
+d6	Syndicate
+"Thieves’ Guild. A disparate convocation of thieves, spies, smugglers, and other scoundrels controls criminal activity in a region of a city.", 
+"Assassin Society. The network’s livelihood is death. Members of the society hone their skills as cutthroats, poisoners, body-disposal specialists, and any other profession focused on ending lives. The society is motivated by profit or labors in service to a greater cause.", 
+"Magical Arms Dealer. The syndicate has cornered the market on deadly magical devices. They offer their services and wares for a price and acquire staggering magical might for those who meet their demands.", 
+"Pirate Fleet. This alliance of pirate captains is unified under a ruling captain or admiral and adheres to a strict code of honor. They converge only in response to an outside threat.", 
+"Body Snatchers. The syndicate consists predominantly, if not entirely, of creatures that possess or impersonate other people. They seek to replace influential individuals throughout society with members of their ranks.", 
+"Thought Thieves. These psychic criminals infiltrate their target’s minds to steal secrets and disguise their existence."
+
+Guild
+
+"Crafters’ Guild. This conglomerate of artisans pools its resources and influence to ensure a steady exchange of gold for its crafts.", 
+"Merchant Consortium. These entrepreneurs don’t create the wares they peddle, instead specializing in linking products to prospective owners. If they don’t have it, they find it.", 
+"Miracle Makers’ Association. The magically inclined crafters of this guild specialize in imbuing physical goods with magical effects. Rumor has it they can strip the magic from existing enchanted items and might be willing to buy or trade adventurers’ spoils.", 
+"Moneychangers. These merchants deal in all forms of currency, acting as bankers, loan agents, and crucial contacts for adventurers and other individuals who deal with large sums of wealth. They exchange coins for gemstones as readily as they find buyers for historical relics and recovered art.", 
+"Philosophical Faction. These like-minded individuals follow specific teachings, spreading word of their expertise through their services and training.", 
+"Identity Traders. These enigmatic dealers buy and sell documents, memories, and the trappings of thoroughly lived lives, selling them to those in need of the ultimate fresh start."
+
+Military force
+
+"Standing Army. A standing army serves as the highly disciplined and structured guardian of a province or an entire nation. Strict tiers of command ensure coordination between branches of the force.", 
+"Mercenary Company. Hard-bitten veterans of numerous conflicts, mercenaries serve an employer for coin rather than out of loyalty.", 
+"Expeditionary Force. This military force is far from home, fighting behind enemy lines or striking into wild, unsettled lands. The force must be fast, self-sufficient, and either diplomatic or decisive to assure their survival.", 
+"Horde. The horde is almost a force of nature, and what it lacks in discipline it makes up in ferocity. It doesn’t have a rigid command structure, instead functioning like a pyramid of smaller armies. Horde commanders owe fealty to stronger leaders above them, all the way up to the warlord.", 
+"Planar Conscripts. This military force battles for cosmic stakes on far-flung planes of the multiverse or fights against extraplanar invasion on the Material Plane. Warriors include conscripts pressed into service in the Blood War, fodder in the thrall of ruthless yugoloth mercenaries, or members of a glorious celestial host defending against fiendish incursion.", 
+"Sky Warriors. This military force consists of winged creatures, employs magical flight, or sails airships as a sky navy. Traditional defenses are ineffective against attacks from the air, positioning the sky warriors as a fearsome nation or expensive and coveted mercenaries."
+
+Religious Order
+
+"Undead Hunters. This community of scholars and monster hunters laboriously researches the unquiet dead, tracking them to their lairs and permanently laying them to rest.", 
+"Devout Scholars. This federation prizes knowledge and texts pertaining to their god. They collect rare holy books and record the life stories of miracle-working prophets.", 
+"Relic Collectors. This order of archeologist-monks seeks to fill their museum-like temple with storied holy relics.", 
+"Charitable Missionaries. Adhering to the belief that religion empowers civilization, this order travels far to help the downtrodden, seeking to draw new believers by their virtuous example.", 
+"Militant Inquisitors. This dogmatically rigid hierarchy seeks to stamp out all threats to their beliefs.", 
+"Doomsaying Evangelists. This order believes the world is about to end. They’re convinced that if they persuade everyone else of this fact, they might stave off the impending doom."
+
+
