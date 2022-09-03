@@ -10,7 +10,7 @@ def index(request):
 
 def build_encounter(request):
 
-    return render(request, "app_encounter_builder/buildEncounter.html")
+    return render(request, "app_encounter_builder/encounter-builder.html")
 
 def get_saved_encounters(request, user_id):
 
@@ -20,17 +20,17 @@ def get_encounter(request, encounter_id):
 
     return
 
-def login(request):
-    if request.method == "GET":
-        return render(request, "app_encounter_builder/login.html")
-    elif request.method == "POST":
-        data = json.loads(request.body)
-        username = data.get("username", "")
-        password = data.get("password", "")
+# def login(request):
+#     if request.method == "GET":
+#         return render(request, "app_encounter_builder/login.html")
+#     elif request.method == "POST":
+#         data = json.loads(request.body)
+#         username = data.get("username", "")
+#         password = data.get("password", "")
 
-        user = auth.authenticate(request, username=username, password=password)
-        if user == None:
-            return JsonResponse({"message": "Invalid username or password"})
-        else:
-            auth.login(request, user)
-            return JsonResponse({"message": "Ok"})
+#         user = auth.authenticate(request, username=username, password=password)
+#         if user == None:
+#             return JsonResponse({"message": "Invalid username or password"})
+#         else:
+#             auth.login(request, user)
+#             return JsonResponse({"message": "Ok"})

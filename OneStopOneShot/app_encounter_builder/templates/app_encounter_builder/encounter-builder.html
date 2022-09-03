@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encounter Builder</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script defer src="{% static 'app_encounter_builder/app.js' %}"></script>
+    <script defer src="{% static 'app_encounter_builder/EXP_by_CR.js' %}"></script>
+    <script defer src="{% static 'app_encounter_builder/EXPThreshold.js' %}"></script>
+    <script src="{% static 'app_encounter_builder/monsters_by_CR.js' %}"></script>
+    <style>
+        #party-wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+        #exp-goals {
+            display: flex;
+            align-items: center;
+        }
+        .difficulty-wrapper {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+        .exp-wrapper {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            margin-left: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+
+{% comment %} This is the start of the app. The following code will be manipulated through Vue. {% endcomment %}
+    <div id="app">
+{% comment %} This is the player div. It will allow the user to add player characters and alter their levels. {% endcomment %}
+        <div id="player-character-div">
+{% comment %} Wrapper for player characters and exp goals. {% endcomment %}
+            <div id="party-wrapper">
+                
+                <div id="player-characters">
+                    <button id="add-player-button" v-on:click="addCharacter()">Add Player Character</button>
+                    <div id="party" v-for="(player, index) in party" >Lvl: 
+                        <input type="Number" min="1" max="20" v-model="player" v-on:change="updatePlayer(index, player)">
+                        <button id="delete-btn" v-on:click="deleteCharacter(index)">Delete</button>
+                    </div>
+                </div>
+                <div id="exp-goals">
+                    <div class="difficulty-wrapper">
+                        <div id="easy">Easy: </div>
+                        <div id="medium">Medium: </div>
+                        <div id="hard">Hard: </div>
+                        <div id="deadly">Deadly: </div>
+                        <div id="day">Daily: </div>
+                    </div>
+                    <div class="exp-wrapper">
+                        <div>[[easyEXP]]</div>
+                        <div>[[mediumEXP]]</div>
+                        <div>[[hardEXP]]</div>
+                        <div>[[deadlyEXP]]</div>
+                        <div>[[dayEXP]]</div>
+                    </div>
+                </div>
+            </div>
+{% comment %} Save party to local storage. {% endcomment %}
+            <div id="save-party">
+
+            </div>
+        </div>
+{% comment %}  This is the encounter div. It will enumerate and elaborate monsters by their CR. {% endcomment %}
+        <div id="encounter-div">
+{% comment %} Add monster to current encounter. {% endcomment %}
+            <div id="add-monster">
+
+            </div>
+{% comment %} Dropdown menu for every available CR. {% endcomment %}
+            <div id="cr-dropdown-menu">
+
+            </div>
+{% comment %} Dropdown menu for monsters dependednt on selected CR. {% endcomment %}
+            <div id="monster-dropdown-menu">
+
+            </div>
+{% comment %} Save current encounter. {% endcomment %}
+            <div id="save-encounter">
+
+            </div>
+        </div>
+{% comment %}  This is the statblock div. It will display the statblock of the currently selected monster. {% endcomment %}
+        <div id="statblock-div">
+
+        </div>
+{% comment %} This div is undefined as of now. {% endcomment %}
+        <div>
+
+        </div>
+    </div>
+{% comment %} This is the endd of the app. {% endcomment %}
+
+
+</body>
+</html>
