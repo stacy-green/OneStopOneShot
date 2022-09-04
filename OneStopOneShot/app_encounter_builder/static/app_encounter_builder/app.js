@@ -12,7 +12,10 @@ const app = Vue.createApp({
             deadlyEXP: 100,
             dayEXP: 300,
             party: [1],
+            listCRs: [],
             monsters: [],
+            selectedCR: "0",
+            selectedMonster: null,
 
         }
     },
@@ -32,19 +35,25 @@ const app = Vue.createApp({
                 this.deadlyEXP += exp_threshold_per_character_level[player]["Deadly"]
                 this.dayEXP += adventuring_day_exp_per_character[player]
             }
-            // console.log(this.easyEXP)
-            // console.log(this.mediumEXP)
-            // console.log(this.hardEXP)
-            // console.log(this.deadlyEXP)
-            // console.log(this.dayEXP)
         },
 
         enumerateCRs: function() {
-
+            for(let cr in monsters_by_challenge_rating) {
+                this.listCRs.push(cr)
+            }
         },
 
         elaborateMonsters: function() {
+            this.monsters = []
+            // console.log(this.selectedCR)
+            for(let monster of monsters_by_challenge_rating[this.selectedCR]) {
+                this.monsters.push(monster)
+            }
+            // console.log(this.monsters)
+        },
 
+        shorStatblock: function() {
+            
         },
 
         calculateMonsterEXP: function() {
@@ -80,7 +89,8 @@ const app = Vue.createApp({
     },
 
     mounted: function() {
-
+        this.enumerateCRs()
+        this.elaborateMonsters()
     },
 
 }).mount("#app")
