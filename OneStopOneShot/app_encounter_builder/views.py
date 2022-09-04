@@ -12,6 +12,10 @@ def build_encounter(request):
 
     return render(request, "app_encounter_builder/encounter-builder.html")
 
+def display_statblock(request):
+    
+    return JsonResponse()
+
 def get_saved_encounters(request, user_id):
 
     return

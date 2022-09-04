@@ -32,6 +32,13 @@
             text-align: left;
             margin-left: 1rem;
         }
+        .left-side {
+            display: flex;
+            flex-direction: column;
+        }
+        #app {
+            display: flex;
+        }
     </style>
 </head>
 <body>
@@ -40,7 +47,7 @@
 {% comment %} This is the start of the app. The following code will be manipulated through Vue. {% endcomment %}
     <div id="app">
 {% comment %} This is the player div. It will allow the user to add player characters and alter their levels. {% endcomment %}
-        <div>
+        <div class="left-side">
             <div id="player-character-div">
             {% comment %} Wrapper for player characters and exp goals. {% endcomment %}
                 <div id="party-wrapper">
@@ -99,7 +106,8 @@
         </div>
 {% comment %}  This is the statblock div. It will display the statblock of the currently selected monster. {% endcomment %}
         <div id="statblock-div">
-            [[markdown]]
+            <img v-bind:src="'app_encounter_builder/statBlocks/acolyte.png'" alt="">
+            some text
         </div>
 {% comment %} This div is undefined as of now. {% endcomment %}
         <div>
