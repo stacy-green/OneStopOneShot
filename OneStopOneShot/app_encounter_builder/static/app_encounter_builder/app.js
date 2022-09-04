@@ -16,6 +16,7 @@ const app = Vue.createApp({
             monsters: [],
             selectedCR: "0",
             selectedMonster: null,
+            markdown: ``,
 
         }
     },
@@ -53,7 +54,7 @@ const app = Vue.createApp({
         },
 
         shorStatblock: function() {
-            
+
         },
 
         calculateMonsterEXP: function() {
