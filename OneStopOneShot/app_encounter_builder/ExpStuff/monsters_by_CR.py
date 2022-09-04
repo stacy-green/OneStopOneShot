@@ -45,7 +45,7 @@ monsters_by_challenge_rating = {
         "Poisonous snake", 
         "Pony", 
         "Stirge", 
-        "Twig blight", 
+        "Twig blight", #############################################################################
     ],
     "1/4": [
         "Acolyte", 
@@ -66,7 +66,7 @@ monsters_by_challenge_rating = {
         "Giant wolf spider", 
         "Goblin", 
         "Panther", 
-        "Pteranodon", 
+        "Pteranodon", ######################################################################################
         "Riding horse", 
         "Skeleton", 
         "Swarm of bats", 
@@ -114,7 +114,7 @@ monsters_by_challenge_rating = {
         "Tiger", 
     ],
     "2": [
-        "Allosaurus", 
+        "Allosaurus", ######################################################################################
         "Awakened tree", 
         "Berserker", 
         "Centaur", 
@@ -125,7 +125,7 @@ monsters_by_challenge_rating = {
         "Grick", 
         "Griffon", 
         "Hunter shark", 
-        "Nothic", 
+        "Nothic", #########################################################################################
         "Ochre jelly", 
         "Ogre", 
         "Pegasus", 
@@ -137,7 +137,7 @@ monsters_by_challenge_rating = {
         "Swarm of poisonous snakes", 
     ],
     "3": [
-        "Ankylosaurus", 
+        "Ankylosaurus", #############################################################################
         "Basilisk", 
         "Doppelganger", 
         "Giant scorpion", 
@@ -149,16 +149,16 @@ monsters_by_challenge_rating = {
         "Mummy", 
         "Owlbear", 
         "Phase spider", 
-        "Spectator", 
+        "Spectator", ##################################################################################
         "Werewolf", 
         "Wight", 
         "Winter wolf", 
-        "Yeti", 
+        "Yeti", ######################################################################################
     ],
     "4": [
-        "Banshee", 
+        "Banshee", ###################################################################################
         "Elephant", 
-        "Flameskull", 
+        "Flameskull", ################################################################################
         "Ghost", 
     ],
     "5": [
@@ -175,7 +175,7 @@ monsters_by_challenge_rating = {
     ],
     "6": [
         "Chimera", 
-        "Cyclops", 
+        "Cyclops", ########################################################################################
         "Mage", 
         "Mammoth", 
         "Medusa", 
