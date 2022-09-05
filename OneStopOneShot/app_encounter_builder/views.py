@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import request, HttpResponse, JsonResponse
 import json
 from django.contrib import auth
-
+from .models import Monster
 
 def index(request):
 
@@ -13,8 +13,13 @@ def build_encounter(request):
     return render(request, "app_encounter_builder/encounter-builder.html")
 
 def display_statblock(request):
-    
-    return JsonResponse()
+     if request.method == "GET":
+        selected_monster = request.GET.get("selectedmonster")
+        monster_to_return = Monster.objects.filter(name=selected_monster)
+        # print(monster_to_return)
+        data = list(monster_to_return.values("name", "cr"))
+        print(data)
+        return JsonResponse({"data": data}, safe=False)
 
 
 

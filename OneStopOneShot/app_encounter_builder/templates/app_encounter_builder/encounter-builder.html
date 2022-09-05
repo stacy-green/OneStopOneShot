@@ -94,7 +94,7 @@
             
             {% comment %} Dropdown menu for monsters dependent on selected CR. {% endcomment %}
                 <div id="monster-dropdown-menu">
-                    <select v-model="selectedMonster" v-on:change="">
+                    <select v-model="selectedMonster" v-on:change="displayStatblock()">
                         <option selected disabled>Select Monster</option>
                         <option v-for="(monster, index) in monsters" v-bind:value="monster">[[monster]]</option>
                     </select>
@@ -106,8 +106,8 @@
         </div>
 {% comment %}  This is the statblock div. It will display the statblock of the currently selected monster. {% endcomment %}
         <div id="statblock-div">
-            <img v-bind:src="'app_encounter_builder/statBlocks/acolyte.png'" alt="">
-            some text
+            <h1 v-if="statblock != null">[[statblock.name]]</h1>
+            <h3 v-if="statblock != null">[[statblock.cr]]</h3>
         </div>
 {% comment %} This div is undefined as of now. {% endcomment %}
         <div>

@@ -16,7 +16,7 @@ const app = Vue.createApp({
             monsters: [],
             selectedCR: "0",
             selectedMonster: null,
-            markdown: ``,
+            statblock: [],
 
         }
     },
@@ -53,8 +53,18 @@ const app = Vue.createApp({
             // console.log(this.monsters)
         },
 
-        shorStatblock: function() {
-
+        displayStatblock: function() {
+            if (this.selectedMonster != null) {
+                this.statblock = []
+                fetch(`/encounter/stats/?selectedmonster=${this.selectedMonster}`)
+                .then((response) => {response.json().then(data => {
+                    console.log(data.data)
+                    this.statblock = data.data[0]
+                })})
+                .catch(function(err) {
+                    console.log(err)
+                })
+            }
         },
 
         calculateMonsterEXP: function() {
