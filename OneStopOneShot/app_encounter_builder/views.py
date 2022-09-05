@@ -16,13 +16,7 @@ def display_statblock(request):
     
     return JsonResponse()
 
-def get_saved_encounters(request, user_id):
 
-    return
-
-def get_encounter(request, encounter_id):
-
-    return
 
 # def login(request):
 #     if request.method == "GET":
