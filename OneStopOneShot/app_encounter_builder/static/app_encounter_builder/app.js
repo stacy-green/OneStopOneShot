@@ -18,11 +18,11 @@ const app = Vue.createApp({
             selectedMonster: null,
             statblock: [],
             encounterList: [],
-            partySize: null,
+            partySize: 'small',
             encounterEXPs: [],
             totalEXP: 0,
             adjustedEXP: 0,
-            encounterDifficulty: null,
+            encounterDifficulty: "Easy",
 
 
         }
@@ -80,37 +80,74 @@ const app = Vue.createApp({
                 EXP = Number(EXP)
                 this.totalEXP += EXP
             }
-            console.log(this.totalEXP)
+            this.adjustEXP()
+            // console.log(this.totalEXP)
         },
     
         adjustEXP: function() {
+            let multiplier = 0
+            if(this.encounterList.length > 0 && this.encounterList.length < 16) {
+                if (this.partySize === 'small') {
+                    multiplier = encounter_multipliers_per_number_of_monsters_small_party[this.encounterList.length]
+                } else if (this.partySize === 'medium') {
+                    multiplier = encounter_multipliers_per_number_of_monsters[this.encounterList.length]
+                } else if (this.partySize === 'large') {
+                    multiplier = encounter_multipliers_per_number_of_monsters_large_party[this.encounterList.length]
+                }
+            } else if (this.encounterList.length > 15) {
+                if (this.partySize === 'small') {
+                    multiplier = encounter_multipliers_per_number_of_monsters_small_party[15]
+                } else if (this.partySize === 'medium') {
+                    multiplier = encounter_multipliers_per_number_of_monsters[15]
+                } else if (this.partySize === 'large') {
+                    multiplier = encounter_multipliers_per_number_of_monsters_large_party[15]
+                }
+            }
+            this.adjustedEXP = (this.totalEXP) * (multiplier)
+            this.calculateDifficulty()
+        },
 
+        calculateDifficulty: function() {
+            if(this.adjustedEXP <= this.easyEXP) {
+                this.encounterDifficulty = "Easy"
+            } else if (this.adjustedEXP <= this.mediumEXP) {
+                this.encounterDifficulty = "Medium"
+            } else if (this.adjustedEXP <= this.hardEXP) {
+                this.encounterDifficulty = "Hard"
+            } else {
+                this.encounterDifficulty = "Deadly"
+            }
         },
 
         deleteCharacter: function(index) {
             this.party.splice(index, 1)
             this.calculateEXP()
             this.calculatePartySize()
+            this.adjustEXP()
         },
 
         addCharacter: function() {
             this.party.push(1)
             this.calculateEXP()
             this.calculatePartySize()
+            this.adjustEXP()
         },
 
         updatePlayer: function(playerIndex, newLevel){
             this.party[playerIndex] = newLevel
             this.calculateEXP()
             this.calculatePartySize()
+            this.adjustEXP()
         },
 
         addMonster: function() {
+            if(this.selectedMonster != null){
             this.encounterList.push(`${this.statblock.name}, CR: ${this.statblock.cr}`)
             let EXP = exp_by_challenge_rating[this.selectedCR]
             this.encounterEXPs.push(EXP)
             // console.log(this.encounterEXPs)
             this.calculateMonsterEXP()
+            }
         },
 
         removeMonster: function(monster) {

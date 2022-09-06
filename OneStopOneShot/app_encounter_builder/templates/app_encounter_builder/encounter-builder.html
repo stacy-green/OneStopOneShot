@@ -85,6 +85,9 @@
             {% comment %} Add monster to current encounter. {% endcomment %}
                 <div id="add-monster">
                     <button v-on:click="addMonster()">Add monster</button>
+                    <div id="total-exp">Total EXP: [[totalEXP]]</div>
+                    <div id="adjusted-exp">Adjusted EXP: [[adjustedEXP]]</div>
+                    <div id="encounter-difficulty">Encounter Difficulty: [[encounterDifficulty]]</div>
                 </div>
             {% comment %} Dropdown menu for every available CR. {% endcomment %}
                 <div id="cr-dropdown-menu">
