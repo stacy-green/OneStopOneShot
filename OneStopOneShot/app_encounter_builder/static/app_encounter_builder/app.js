@@ -24,7 +24,6 @@ const app = Vue.createApp({
             adjustedEXP: 0,
             encounterDifficulty: "Easy",
 
-
         }
     },
 
@@ -167,6 +166,16 @@ const app = Vue.createApp({
                 this.partySize = 'large'
             }
             // console.log(this.partySize)
+        },
+
+        saveParty: function() {
+            // save to local storage
+
+        },
+
+        saveEncounter: function() {
+            // save to database 
+            
         },
 
     },
