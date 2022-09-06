@@ -18,6 +18,12 @@ const app = Vue.createApp({
             selectedMonster: null,
             statblock: [],
             encounterList: [],
+            partySize: null,
+            encounterEXPs: [],
+            totalEXP: 0,
+            adjustedEXP: 0,
+            encounterDifficulty: null,
+
 
         }
     },
@@ -59,7 +65,7 @@ const app = Vue.createApp({
                 this.statblock = []
                 fetch(`/encounter/stats/?selectedmonster=${this.selectedMonster}`)
                 .then((response) => {response.json().then(data => {
-                    console.log(data.data)
+                    // console.log(data.data)
                     this.statblock = data.data[0]
                 })})
                 .catch(function(err) {
@@ -69,7 +75,12 @@ const app = Vue.createApp({
         },
 
         calculateMonsterEXP: function() {
-
+            this.totalEXP = 0
+            for(let EXP of this.encounterEXPs){
+                EXP = Number(EXP)
+                this.totalEXP += EXP
+            }
+            console.log(this.totalEXP)
         },
     
         adjustEXP: function() {
@@ -79,25 +90,46 @@ const app = Vue.createApp({
         deleteCharacter: function(index) {
             this.party.splice(index, 1)
             this.calculateEXP()
+            this.calculatePartySize()
         },
 
         addCharacter: function() {
             this.party.push(1)
             this.calculateEXP()
+            this.calculatePartySize()
         },
 
         updatePlayer: function(playerIndex, newLevel){
             this.party[playerIndex] = newLevel
             this.calculateEXP()
+            this.calculatePartySize()
         },
 
         addMonster: function() {
             this.encounterList.push(`${this.statblock.name}, CR: ${this.statblock.cr}`)
+            let EXP = exp_by_challenge_rating[this.selectedCR]
+            this.encounterEXPs.push(EXP)
+            // console.log(this.encounterEXPs)
+            this.calculateMonsterEXP()
         },
 
         removeMonster: function(monster) {
             monster = String(monster)
+            let currentCRIndex = this.encounterList.indexOf(monster)
             this.encounterList.splice(this.encounterList.indexOf(monster), 1)
+            this.encounterEXPs.splice(currentCRIndex, 1)
+            this.calculateMonsterEXP()
+        },
+
+        calculatePartySize: function(){
+            if(this.party.length < 3) {
+                this.partySize = 'small'
+            } else if (this.party.length < 6) {
+                this.partySize = 'medium'
+            } else {
+                this.partySize = 'large'
+            }
+            // console.log(this.partySize)
         },
 
     },
