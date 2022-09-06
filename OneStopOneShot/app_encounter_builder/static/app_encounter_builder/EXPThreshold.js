@@ -142,6 +142,41 @@ const encounter_multipliers_per_number_of_monsters = {
     15: 4
 }
 
+const encounter_multipliers_per_number_of_monsters_small_party = {
+    1: 1.5,
+    2: 2,
+    3: 2.5,
+    4: 2.5,
+    5: 2.5,
+    6: 2.5,
+    7: 3,
+    8: 3,
+    9: 3,
+    10: 3,
+    11: 4,
+    12: 4,
+    13: 4,
+    14: 4,
+    15: 5
+}
+const encounter_multipliers_per_number_of_monsters_large_party = {
+    1: 0.5,
+    2: 1,
+    3: 1.5,
+    4: 1.5,
+    5: 1.5,
+    6: 1.5,
+    7: 2,
+    8: 2,
+    9: 2,
+    10: 2,
+    11: 2.5,
+    12: 2.5,
+    13: 2.5,
+    14: 2.5,
+    15: 3
+}
+
 const adventuring_day_exp_per_character = {
     1: 300,
     2: 600,
@@ -164,4 +199,5 @@ const adventuring_day_exp_per_character = {
     19: 30000,
     20: 40000
 }
+
 

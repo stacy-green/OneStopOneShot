@@ -84,6 +84,7 @@
             <div id="encounter-div">
             {% comment %} Add monster to current encounter. {% endcomment %}
                 <div id="add-monster">
+                    <button v-on:click="addMonster()">Add monster</button>
                 </div>
             {% comment %} Dropdown menu for every available CR. {% endcomment %}
                 <div id="cr-dropdown-menu">
@@ -98,6 +99,9 @@
                         <option selected disabled>Select Monster</option>
                         <option v-for="(monster, index) in monsters" v-bind:value="monster">[[monster]]</option>
                     </select>
+                </div>
+                <div id="current-encounter">
+                    <div v-for="monster in encounterList"><button v-on:click="removeMonster(monster)">Remove</button>[[monster]]</div>
                 </div>
             {% comment %} Save current encounter. {% endcomment %}
                 <div id="save-encounter">

@@ -17,6 +17,7 @@ const app = Vue.createApp({
             selectedCR: "0",
             selectedMonster: null,
             statblock: [],
+            encounterList: [],
 
         }
     },
@@ -88,7 +89,17 @@ const app = Vue.createApp({
         updatePlayer: function(playerIndex, newLevel){
             this.party[playerIndex] = newLevel
             this.calculateEXP()
-        }
+        },
+
+        addMonster: function() {
+            this.encounterList.push(`${this.statblock.name}, CR: ${this.statblock.cr}`)
+        },
+
+        removeMonster: function(monster) {
+            monster = String(monster)
+            this.encounterList.splice(this.encounterList.indexOf(monster), 1)
+        },
+
     },
 
     watch: {
