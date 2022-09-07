@@ -202,7 +202,7 @@ const app = Vue.createApp({
     created: function() {
         if(localStorage.getItem("party")) {
             this.party = JSON.parse(localStorage.getItem("party"))
-            for(i = 0; i < this.party.lemgth; i++){
+            for(i = 0; i < this.party.length; i++){
                 this.party[i] = Number(this.party[i])
             }
             console.log(this.party)

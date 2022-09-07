@@ -46,7 +46,7 @@ def load_encounter(request):
     encounters = Encounter.objects.filter(user=user)
     data = list(encounters.values("monsters", "party", "exp", "adjusted_exp", "difficulty"))
     # data = list(encounters.values())
-    print(data)
+    # print(data)
     return JsonResponse({"data": data}, safe=False)
 
 

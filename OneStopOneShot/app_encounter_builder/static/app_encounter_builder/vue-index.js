@@ -5,7 +5,10 @@ const app = Vue.createApp({
 
     data() {
         return {
-            encounters: [],
+            jsondata: [],
+            encountersList: [],
+            party: [],
+            partyString: "",
 
 
         }
@@ -24,13 +27,20 @@ const app = Vue.createApp({
         .then(response => {
             response.json().then(data => {
                 console.log(data.data)
-                this.encounters = data.data[0]
+                this.jsondata = data.data
+                for(i = 0; i < this.jsondata.length; i++){
+                    this.encountersList.push(JSON.parse(data.data[i].monsters))
+                }
+                console.log(this.encountersList)
+                this.party = JSON.parse(data.data[0].party)
+                console.log(this.party)
+                this.partyString = this.party.join(", ")
+                console.log(this.partyString)
             })
         })
     },
-
+    
     mounted: function() {
-        
     },
 
 }).mount("#app")
