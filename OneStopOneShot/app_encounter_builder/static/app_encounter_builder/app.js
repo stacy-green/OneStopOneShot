@@ -52,6 +52,7 @@ const app = Vue.createApp({
 
         elaborateMonsters: function() {
             this.monsters = []
+            this.selectedMonster = null
             // console.log(this.selectedCR)
             for(let monster of monsters_by_challenge_rating[this.selectedCR]) {
                 this.monsters.push(monster)
@@ -119,10 +120,12 @@ const app = Vue.createApp({
         },
 
         deleteCharacter: function(index) {
+            if(party.length > 1){
             this.party.splice(index, 1)
             this.calculateEXP()
             this.calculatePartySize()
             this.adjustEXP()
+            }
         },
 
         addCharacter: function() {
@@ -133,7 +136,7 @@ const app = Vue.createApp({
         },
 
         updatePlayer: function(playerIndex, newLevel){
-            this.party[playerIndex] = newLevel
+            this.party[playerIndex] = Number(newLevel)
             this.calculateEXP()
             this.calculatePartySize()
             this.adjustEXP()
@@ -170,6 +173,9 @@ const app = Vue.createApp({
 
         saveParty: function() {
             // save to local storage
+            const partyString = JSON.stringify(this.party)
+            localStorage.setItem("party", partyString)
+            console.log(partyString)
 
         },
 
@@ -185,7 +191,15 @@ const app = Vue.createApp({
     },
 
     created: function() {
-
+        if(localStorage.getItem("party")) {
+            this.party = JSON.parse(localStorage.getItem("party"))
+            for(i = 0; i < this.party.lemgth; i++){
+                this.party[i] = Number(this.party[i])
+            }
+            console.log(this.party)
+        } else {
+            this.party = [1]
+        }
     },
 
     mounted: function() {

@@ -49,15 +49,16 @@
 {% comment %} This is the player div. It will allow the user to add player characters and alter their levels. {% endcomment %}
         <div class="left-side">
             <div id="player-character-div">
-            {% comment %} Wrapper for player characters and exp goals. {% endcomment %}
+                {% comment %} Wrapper for player characters and exp goals. {% endcomment %}
                 <div id="party-wrapper">
-            
                     <div id="player-characters">
                         <button id="add-player-button" v-on:click="addCharacter()">Add Player Character</button>
                         <div id="party" v-for="(player, index) in party" >Lvl:
                             <input type="Number" min="1" max="20" v-model="player" v-on:change="updatePlayer(index, player)">
                             <button id="delete-btn" v-on:click="deleteCharacter(index)">Delete</button>
                         </div>
+                        {% comment %} Save party to local storage. {% endcomment %}
+                        <button id="save-party-button" v-on:click="saveParty()">Save Party</button>
                     </div>
                     <div id="exp-goals">
                         <div class="difficulty-wrapper">
@@ -76,45 +77,44 @@
                         </div>
                     </div>
                 </div>
-            {% comment %} Save party to local storage. {% endcomment %}
-                <div id="save-party">
-                </div>
             </div>
             {% comment %}  This is the encounter div. It will enumerate and elaborate monsters by their CR. {% endcomment %}
             <div id="encounter-div">
-            {% comment %} Add monster to current encounter. {% endcomment %}
-                <div id="add-monster">
-                    <button v-on:click="addMonster()">Add monster</button>
-                    <div id="total-exp">Total EXP: [[totalEXP]]</div>
-                    <div id="adjusted-exp">Adjusted EXP: [[adjustedEXP]]</div>
-                    <div id="encounter-difficulty">Encounter Difficulty: [[encounterDifficulty]]</div>
-                </div>
-            {% comment %} Dropdown menu for every available CR. {% endcomment %}
+                {% comment %}  {% endcomment %}
+                <div id="total-exp">Total EXP: [[totalEXP]]</div>
+                <div id="adjusted-exp">Adjusted EXP: [[adjustedEXP]]</div>
+                <div id="encounter-difficulty">Encounter Difficulty: [[encounterDifficulty]]</div>
+                {% comment %} Dropdown menu for every available CR. {% endcomment %}
                 <div id="cr-dropdown-menu">
                     <select v-model="selectedCR" v-on:change="elaborateMonsters()">
                         <option v-for="cr in listCRs" v-bind:value="cr">CR: [[cr]]</option>
                     </select>
                 </div>
-            
-            {% comment %} Dropdown menu for monsters dependent on selected CR. {% endcomment %}
+                {% comment %} Dropdown menu for monsters dependent on selected CR. {% endcomment %}
                 <div id="monster-dropdown-menu">
                     <select v-model="selectedMonster" v-on:change="displayStatblock()">
                         <option selected disabled>Select Monster</option>
                         <option v-for="(monster, index) in monsters" v-bind:value="monster">[[monster]]</option>
                     </select>
                 </div>
+                {% comment %} Add monster to current encounter. {% endcomment %}
+                <div id="add-monster">
+                    <button v-on:click="addMonster()">Add monster</button>
+                </div>
                 <div id="current-encounter">
                     <div v-for="monster in encounterList"><button v-on:click="removeMonster(monster)">Remove</button>[[monster]]</div>
                 </div>
-            {% comment %} Save current encounter. {% endcomment %}
+                {% comment %} Save current encounter. {% endcomment %}
                 <div id="save-encounter">
+                    <button v-on:click="saveEncounter()">Save Encounter</button>
                 </div>
             </div>
         </div>
 {% comment %}  This is the statblock div. It will display the statblock of the currently selected monster. {% endcomment %}
         <div id="statblock-div">
-            <h1 v-if="statblock != null">[[statblock.name]]</h1>
-            <h3 v-if="statblock != null">[[statblock.cr]]</h3>
+            <h1 v-if="statblock.name">[[statblock.name]]</h1>
+            <h3 v-if="statblock.cr">[[statblock.cr]]</h3>
+
         </div>
 {% comment %} This div is undefined as of now. {% endcomment %}
         <div>

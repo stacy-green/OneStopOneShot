@@ -4,6 +4,8 @@ import json
 from django.contrib import auth
 from .models import Monster
 
+########################################################################################################
+
 def index(request):
 
     return render(request, "app_encounter_builder/index.html")
@@ -21,7 +23,18 @@ def display_statblock(request):
         print(data)
         return JsonResponse({"data": data}, safe=False)
 
+def save_encounter(request):
 
+
+    return
+
+def load_encounter(request):
+
+
+    return
+
+
+########################################################################################################
 
 # def login(request):
 #     if request.method == "GET":
