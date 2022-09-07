@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import request, HttpResponse, JsonResponse
 import json
 from django.contrib import auth
-from .models import Monster
+from .models import Monster, Encounter
 
 ########################################################################################################
 
@@ -24,9 +24,16 @@ def display_statblock(request):
         return JsonResponse({"data": data}, safe=False)
 
 def save_encounter(request):
-
-
-    return
+    if request.method == "GET":
+        encounter = Encounter()
+        encounter.monsters = request.GET.get("mon")
+        encounter.party = request.GET.get("par")
+        encounter.exp = request.GET.get("exp")
+        encounter.adjusted_exp = request.GET.get("adj")
+        encounter.difficulty = request.GET.get("dif")
+        encounter.user = request.user
+        encounter.save()
+    return redirect('index')
 
 def load_encounter(request):
 

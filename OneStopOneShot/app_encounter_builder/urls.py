@@ -7,4 +7,5 @@ urlpatterns = [
     # path("api/encounters/<int:user_id>/", views.get_saved_encounters, name="get_saved_encounters"),
     path("build/", views.build_encounter, name="build_encounter"),
     path("stats/", views.display_statblock, name="display_statblock"),
+    path("save/", views.save_encounter, name="save_encounter"),
 ]

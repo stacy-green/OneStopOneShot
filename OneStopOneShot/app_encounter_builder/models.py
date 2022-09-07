@@ -48,7 +48,8 @@ class Encounter(models.Model):
     party = models.CharField(max_length=255, blank=True, null=True)
     exp = models.CharField(max_length=16, blank=True, null=True)
     adjusted_exp = models.CharField(max_length=16, blank=True, null=True)
+    difficulty = models.CharField(max_length=16, blank=True, null=True)
     user = models.ForeignKey(User, related_name="users", on_delete=models.PROTECT, blank=True, null=True)
     
     def __str__(self):
-        return f"{self.user}: {self.monsters}"
+        return f"User: {self.user}, Party: {self.party}, Monsters: {self.monsters}"
