@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encounters</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script defer src="{% static 'app_encounter_builder/vue-index.js' %}"></script>
 </head>
 <body>
-    <h1>It works!</h1>
+    <h1>Index page loaded</h1>
+    <div id="app">
+        <div></div>
+    </div>
 </body>
 </html>
