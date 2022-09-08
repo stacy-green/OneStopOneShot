@@ -34,10 +34,14 @@ def save_encounter(request):
         encounter.difficulty = request.GET.get("dif")
         encounter.user = request.user
         encounter.save()
-        new_portfolio = Portfolio()
-        new_portfolio.name = request.GET.get("name")
-        encounter.portfolio = new_portfolio
-        new_portfolio.save()
+        try:
+            portfolio = Portfolio.objects.get(name=(request.GET.get("name")))
+            encounter.portfolio = portfolio
+        except Portfolio.DoesNotExist:
+            new_portfolio = Portfolio()
+            new_portfolio.name = request.GET.get("name")
+            encounter.portfolio = new_portfolio
+            new_portfolio.save()
         encounter.save()
     return redirect('index')
 
