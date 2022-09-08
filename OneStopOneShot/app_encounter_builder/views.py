@@ -44,8 +44,11 @@ def load_encounter(request):
     return JsonResponse({"data": data}, safe=False)
 
 def delete_encounter(request, encounter_id):
-
-    return
+    encounter = Encounter.objects.get(id=encounter_id)
+    if encounter.user == request.user:
+        encounter.delete()
+    print("Deleted encounter with id: " + str(encounter_id))
+    return redirect("load_encounter")
 
 ########################################################################################################
 
