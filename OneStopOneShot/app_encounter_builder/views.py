@@ -36,19 +36,16 @@ def save_encounter(request):
     return redirect('index')
 
 def load_encounter(request):
-    #  monsters = models.TextField(blank=True, null=True)
-    # party = models.CharField(max_length=255, blank=True, null=True)
-    # exp = models.CharField(max_length=16, blank=True, null=True)
-    # adjusted_exp = models.CharField(max_length=16, blank=True, null=True)
-    # difficulty = models.CharField(max_length=16, blank=True, null=True)
-    # user
     user = request.user
     encounters = Encounter.objects.filter(user=user)
-    data = list(encounters.values("monsters", "party", "exp", "adjusted_exp", "difficulty"))
+    data = list(encounters.values("monsters", "party", "exp", "adjusted_exp", "difficulty", "id"))
     # data = list(encounters.values())
     # print(data)
     return JsonResponse({"data": data}, safe=False)
 
+def delete_encounter(request, encounter_id):
+
+    return
 
 ########################################################################################################
 

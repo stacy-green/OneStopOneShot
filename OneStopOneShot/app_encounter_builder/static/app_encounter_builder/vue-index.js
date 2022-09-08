@@ -16,6 +16,11 @@ const app = Vue.createApp({
 
     methods: {
 
+        deleteEncounter: function(id) {
+            console.log(id)
+            console.log("OK")
+        },
+
     },
 
     watch: {

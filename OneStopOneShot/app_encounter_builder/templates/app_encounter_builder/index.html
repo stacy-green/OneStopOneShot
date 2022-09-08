@@ -16,7 +16,7 @@
         <div>Party Lvls: [[partyString]]</div>
         <div v-for="(encounter, index) in encountersList">
             <div>
-                <div>Encounter: <div v-for="monster in encounter">[[monster]], </div></div>
+                <div><button v-on:click="deleteEncounter(jsondata[index].id)">Del</button> Encounter: <div v-for="monster in encounter">[[monster]], </div></div>
                 <div>EXP: [[jsondata[index].exp]]</div>
                 <div>Adjusted EXP: [[jsondata[index].adjusted_exp]]</div>
                 <div>Difficulty: [[jsondata[index].difficulty]]</div>
