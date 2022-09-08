@@ -184,12 +184,7 @@ const app = Vue.createApp({
             // save to database 
             let partyString = JSON.stringify(this.party)
             let monsterString = JSON.stringify(this.encounterList)
-            fetch(`/encounter/save/
-            ?par=${partyString}
-            &mon=${monsterString}
-            &exp=${this.totalEXP}
-            &adj=${this.adjustedEXP}
-            &dif=${this.encounterDifficulty}`)
+            fetch(`/encounter/save/?par=${partyString}&mon=${monsterString}&exp=${this.totalEXP}&adj=${this.adjustedEXP}&dif=${this.encounterDifficulty}`)
 
         },
 
