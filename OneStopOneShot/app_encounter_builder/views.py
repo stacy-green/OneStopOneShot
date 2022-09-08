@@ -3,6 +3,7 @@ from django.http import request, HttpResponse, JsonResponse
 import json
 from django.contrib import auth
 from .models import Monster, Encounter
+from app_OSOS.models import Portfolio
 
 ########################################################################################################
 
@@ -32,6 +33,11 @@ def save_encounter(request):
         encounter.adjusted_exp = request.GET.get("adj")
         encounter.difficulty = request.GET.get("dif")
         encounter.user = request.user
+        encounter.save()
+        new_portfolio = Portfolio()
+        new_portfolio.name = request.GET.get("name")
+        encounter.portfolio = new_portfolio
+        new_portfolio.save()
         encounter.save()
     return redirect('index')
 

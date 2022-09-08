@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from app_OSOS.models import Portfolio
 
 class Monster(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
@@ -50,6 +51,7 @@ class Encounter(models.Model):
     adjusted_exp = models.CharField(max_length=16, blank=True, null=True)
     difficulty = models.CharField(max_length=16, blank=True, null=True)
     user = models.ForeignKey(User, related_name="users", on_delete=models.PROTECT, blank=True, null=True)
+    portfolio = models.ForeignKey(Portfolio, related_name="portfolios", on_delete=models.PROTECT, blank=True, null=True)
     
     def __str__(self):
         return f"User: {self.user}, Party: {self.party}, Monsters: {self.monsters}"
