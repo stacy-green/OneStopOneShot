@@ -17,7 +17,16 @@ const app = Vue.createApp({
     methods: {
 
         deleteEncounter: function(id) {
-            fetch(`delete/${id}`)  
+            fetch(`delete/${id}`)
+            // .then(response => {
+            //     console.log(response)
+            //     response.json().then(data => {
+            //         console.log(data.message)
+            //     })
+            // })
+            
+            window.location = ""
+
         },
 
     },
