@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Map</title>
-</head>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script defer src="{% static 'app_map_generator/app.js' %}"></script>
 <body>
     <h1>It works</h1>
+    <div id="app">
+        <div id="size-select-div">
+            <select v-model="selectedMapSize" v-on:change="loadMaps(), buildMapList()" >
+                <option selected disabled value="0">Select Map Size</option>
+                <option v-for="size in mapSizeList" v-bind:value="size">[[size]]</option>
+            </select>
+            <button v-on:click="displayMap()">Get map!</button>
+        </div>
+        <div id="map-div">
+            <img v-bind:src="'../media/'+selectedMap" alt="">
+        </div>
+    </div>
 </body>
 </html>
