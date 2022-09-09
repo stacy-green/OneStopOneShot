@@ -10,6 +10,7 @@ const app = Vue.createApp({
             selectedMap: null,
             jsondata: null,
             mapList: [],
+            fetching: false,
 
 
         }
@@ -17,20 +18,24 @@ const app = Vue.createApp({
 
     methods: {
         loadMaps: function() {
+            this.fetching = true
+            console.log(this.selectedMapSize)
             fetch(`get/?size=${this.selectedMapSize}`)
             .then(response => {
-                response.json()
+                return response.json()
+            })
                 .then(data => {
                     this.jsondata = data.data
-                    console.log(this.jsondata)
-                })
+                    console.log(this.jsondata)  
+                    this.fetching = false
             })
         },
 
         buildMapList: function() {
+            this.mapList = []
             for(i = 0; i < this.jsondata.length; i++) {
                 this.mapList.push(this.jsondata[i].img)
-            } 
+            }
             console.log(this.mapList)
         },
 
@@ -43,7 +48,9 @@ const app = Vue.createApp({
     },
 
     watch: {
-
+        jsondata: function() {
+            this.buildMapList()
+        }
     },
 
     created: function() {
