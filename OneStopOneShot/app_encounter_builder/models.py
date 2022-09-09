@@ -1,6 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-from app_OSOS.models import Portfolio
+from app_OSOS.models import Portfolio, User
 
 class Monster(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
@@ -38,11 +37,6 @@ class Monster(models.Model):
 
     def __str__(self):
         return f"{self.name}, CR: {self.cr}"
-
-class User(AbstractUser):
-
-    def __str__(self):
-        return self.username
 
 class Encounter(models.Model):
     monsters = models.TextField(blank=True, null=True)
