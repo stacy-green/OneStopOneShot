@@ -9,8 +9,7 @@ from .models import Portfolio
 
 def index(request):
     
-    # return HttpResponse("OK")
-    return render(request, "app_OSOS/index.html")
+    return render(request, "app_OSOS/index-OSOS.html")
 
 def user_profile(request):
 
