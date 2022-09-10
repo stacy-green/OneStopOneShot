@@ -20,10 +20,10 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('app_OSOS.urls')),
     path('encounter/', include('app_encounter_builder.urls')),
     path('map/', include('app_map_generator.urls')),
-    path('setting/', include('app_setting_generator.urls'))
+    path('setting/', include('app_setting_generator.urls')),
+    path('', include('app_OSOS.urls')),
 ]
 
 if settings.DEBUG:

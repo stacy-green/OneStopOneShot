@@ -2,15 +2,17 @@ from django.shortcuts import render, redirect
 from django.http import request, HttpResponse, JsonResponse
 import json
 from django.contrib import auth
-
+from app_encounter_builder.models import Encounter
+from .models import Portfolio
 
 ######################################################################################################
 
 def index(request):
-
+    
+    # return HttpResponse("OK")
     return render(request, "app_OSOS/index.html")
 
-def get_portfolios(request):
+def user_profile(request):
 
     pass
 
