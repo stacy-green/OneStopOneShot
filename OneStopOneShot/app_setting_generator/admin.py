@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Villain, NPC
 
-# Register your models here.
+admin.site.register(Villain)
+admin.site.register(NPC)
