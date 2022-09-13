@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import request, HttpResponse, JsonResponse
 import json
 from django.contrib import auth
+from .static.app_setting_generator.mytables import CharacterTables
+
 
 #########################################################################################################
 
