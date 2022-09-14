@@ -1,5 +1,5 @@
-{   
-    "event": [
+  
+const event = [
         "The love of your young life died in your arms during a raider attack.", 
         "You bravely fought off several bandits as a young teenager.", 
         "You went into a series of ancient ruins on a dare and almost died — a family member or loved one saved you.", 
@@ -33,8 +33,9 @@
         "You won a championship fighting contest in your youth and are considered a celebrity in your tribe.", 
         "You were chased out of your village after causing too much trouble with your childish pranks.", 
         "You were imprisoned for a crime you didn't commit."
-    ],
-    "fear": [
+    ]
+
+const fear = [
         "True Love. I fear true love, of being in the presence of a purity of emotional honesty that I will never know.", 
         "Famine. I have seen those who die by starvation, a death of indignity. I know how easily I too could suffer such a fate. It puts a sick feeling in my gut, one that is not easily remedied.", 
         "Deep Water. I fear the dark abyss of the Sea, the uncertainty of what lurks in those endless depths, and the writhing creatures beneath the waves that may seek to steal my soul.", 
@@ -43,8 +44,9 @@
         "The Afterlife. I fear that upon my demise, however good or righteous it might be, that I will still be cast into the cruel and cold hands of an eternally alone and dark afterlife.", 
         "Loss of Control. I fear loss of my self, loss of my being; my face, my ego. I worked so hard to be notably myself, and to have this marred and invalidated, to look upon myself and not see me…that terrifies me deeply.", 
         "Undeath. I've witnessed the terrors of undeath, of spectres and skeletons, and so I fear my corpse may not stay motionless forever…"
-    ],
-    "secret": [
+    ]
+
+const secret = [
         "I have a Child I didn't raise.", 
         "I disposed of a Dagger that may have been evidence in a Murder.", 
         "I once sold out a friend for 100 Gold Pieces.", 
@@ -75,8 +77,9 @@
         "Cursed!: I suffered from a terrible curse for many years, it ravaged my mind and ran ragged on my soul. I was freed only recently, and I fear what darkness I may have indulged in while under it.", 
         "The Replacement: I was replaced. I had been gone for a moment, recovering or just away like anyone should be allowed to be. I returned and I was replaced, so easily. They lavished praise upon my replacement, they claimed them better than I ever was. I fear my companions may do the same with me.", 
         "Twisted Mercy: I think the worst part about the tribesmen I fought was that they did not kill me. One grabbed me by the throat and screamed I wasn't fighting properly, that I wasn't giving it my all. That they knew I had a purpose, a power, and that if I wasn't going to fight to their joy, I may as well leave. To be given “mercy” by such wild peoples, I cannot stand for that mark on my honour."
-    ],
-    "organization": [
+    ]
+
+const organization = [
         "Powerful Organization (business, guild, etc)", 
         "Secret Society/Conspiracy", 
         "Cultists", 
@@ -103,8 +106,9 @@
         "Vampires", 
         "Pirates", 
         "Ninjas"
-    ],
-    "villain-type": [
+    ]
+    
+const villainType = [
         "Assassin", 
         "Bounty Hunter", 
         "Criminal", 
@@ -142,8 +146,9 @@
         "Former teammate that everyone thought was dead", 
         "Next in line to be ruler", 
         "Possessed Hero or Priest"
-    ],
-    "motivation": [
+    ]
+
+const motivation = [
         "Romance: I want to marry the princess.", 
         "Revenge - ruin a hero: I want to ruin the King.", 
         "To distinguish oneself: I want the princess to respect me.", 
@@ -223,4 +228,3 @@
         "To harden the people in preparation for some catastrophic event (real, imagined, prophesied) that is approaching.", 
         "Infamy. They seek to out do all other villains (past or present)."
     ]
-}

@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBEG</title>
+    <script src="https://unpkg.com/vue@3"></script> 
+    <script defer src="{% static 'app_setting_generator/app-villain.js' %}"></script>
+    <script src="{% static 'app_setting_generator/mytables/races.js' %}"></script>
+    <script src="{% static 'app_setting_generator/mytables/othernames.js' %}"></script>
+    <script src="{% static 'app_setting_generator/mytables/humannames.js' %}"></script>
+    <script src="{% static 'app_setting_generator/mytables/villain.js' %}"></script>
+</head>
+<body>
+    <h1>hello</h1>
+    <div id="app">
+        <div id="race">
+            <select>
+                <option v-for="race in villainRaces" value=""></option>
+            </select>
+        </div>
+        <h1>Enter your own or click to randomize</h1>
+        <div id="first-name">
+            <input type="text" placeholder="First name">
+            <button></button>
+        </div>
+        <div id="last-name">
+            <input type="text" placeholder="Clan name">
+            <button></button>
+        </div>
+        <div id="villain-type">
+            <input type="text" placeholder="Type of villain">
+            <button></button>
+        </div>
+        <div id="organization">
+            <input type="text" placeholder="Organization affiliation">
+            <button></button>
+        </div>
+        <div id="motivation">
+            <input type="text" placeholder="Motivation">
+            <button></button>
+        </div>
+        <div id="secret">
+            <input type="text" placeholder="Secret">
+            <button></button>
+        </div>
+        <div id="fear">
+            <input type="text" placeholder="Fear">
+            <button></button>
+        </div>
+        <div id="life-event">
+            <input type="text" placeholder="Life event">
+            <button></button>
+        </div>
+    </div>
+</body>
+</html>

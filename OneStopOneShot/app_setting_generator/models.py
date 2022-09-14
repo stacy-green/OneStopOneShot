@@ -8,6 +8,7 @@ class Villain(models.Model):
     last_name = models.CharField(max_length=255, blank=True, null=True)
     race = models.CharField(max_length=255, blank=True, null=True)
     villain = models.CharField(max_length=255, blank=True, null=True)
+    organization = models.CharField(max_length=255, blank=True, null=True)
     motivations = models.CharField(max_length=255, blank=True, null=True)
     secret = models.CharField(max_length=255, blank=True, null=True)
     fear = models.CharField(max_length=255, blank=True, null=True)
@@ -31,3 +32,4 @@ class NPC(models.Model):
     def __str__(self):
 
         return f"{self.last_name}, {self.first_name}"
+
