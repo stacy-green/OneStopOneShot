@@ -213,7 +213,7 @@ const dwarf = [
                 "Trueblood", 
                 "Ungart"
             ],
-            "duergqrclan": [
+            "duergarclan": [
                 "Ashlord", 
                 "Battlegore", 
                 "Doomfist", 
@@ -388,7 +388,7 @@ const elf = [
                 "Wil", 
                 "Za"        
             ],
-            "family": [
+            "clan": [
                 "Aloro", 
                 "Amakiir", 
                 "Amastacia", 

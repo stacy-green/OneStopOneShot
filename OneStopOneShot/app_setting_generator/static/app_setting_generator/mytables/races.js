@@ -1,4 +1,4 @@
-const races = [
+const playable_races = [
     "Dragonborn",
     "Dwarf",
     "Elf",
@@ -55,4 +55,21 @@ const races = [
     "Satyr"
 ]
 
-const racesWithNames = []
+const racesWithNames = [
+    "Dragonborn",
+    "Dwarf",
+    "Elf",
+    "Gnome",
+    "Halfling",
+    "Half-Orc",
+    "Tiefling",
+    "Lizardfolk"
+]
+
+const racesWithClanNames = [
+    "Dragonborn",
+    "Dwarf",
+    "Elf",
+    "Gnome",
+    "Halfling"
+]

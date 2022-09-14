@@ -15,45 +15,61 @@
     <script src="{% static 'app_setting_generator/mytables/villain.js' %}"></script>
 </head>
 <body>
-    <h1>hello</h1>
     <div id="app">
         <div id="race">
-            <select>
-                <option v-for="race in villainRaces" value=""></option>
+            <select v-model="race" v-on:change="determineClan(), determineNames()">
+                <option v-for="playablerace in playableRaces" v-bind:value="playablerace">[[playablerace]]</option>
             </select>
         </div>
-        <h1>Enter your own or click to randomize</h1>
+        <div id="gender">
+            <select v-model="gender" v=on:change="">
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <h2>Enter your own or click to randomize</h2>
+        <h4 v-if="hasNames === false">[[message]]</h4>
+        <div v-if="race ==='Tiefling'" id="virtue-name">
+            <input type="text" placeholder="Virtue name">
+            <button>Roll</button>
+        </div>
+        <div v-if="race === 'Human'">
+            <select v-model="ethnicity" v-on:change="determineNames()">
+                <option v-for="ethnicity in ethnicityList" v-bind:value="ethnicity">[[ethnicity]]</option>
+            </select>
+        </div>
         <div id="first-name">
             <input type="text" placeholder="First name">
-            <button></button>
+            <button>Roll</button>
         </div>
-        <div id="last-name">
+        <div v-if="hasClan === true" id="clan-name">
             <input type="text" placeholder="Clan name">
-            <button></button>
+            <button>Roll</button>
         </div>
         <div id="villain-type">
             <input type="text" placeholder="Type of villain">
-            <button></button>
+            <button>Roll</button>
         </div>
         <div id="organization">
-            <input type="text" placeholder="Organization affiliation">
-            <button></button>
+            <input type="text" placeholder="Organization/affiliation">
+            <button>Roll</button>
         </div>
         <div id="motivation">
             <input type="text" placeholder="Motivation">
-            <button></button>
+            <button>Roll</button>
         </div>
         <div id="secret">
             <input type="text" placeholder="Secret">
-            <button></button>
+            <button>Roll</button>
         </div>
         <div id="fear">
             <input type="text" placeholder="Fear">
-            <button></button>
+            <button>Roll</button>
         </div>
         <div id="life-event">
             <input type="text" placeholder="Life event">
-            <button></button>
+            <button>Roll</button>
         </div>
     </div>
 </body>
