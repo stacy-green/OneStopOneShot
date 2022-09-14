@@ -1,4 +1,4 @@
-const dragonborn = [
+const Dragonborn = [
         {
             "clan": [
                 "Akambherylliax", 
@@ -159,7 +159,7 @@ const dragonborn = [
         }
     ]
 
-const dwarf = [
+const Dwarf = [
         {
             "clan": [
                 "Aranore", 
@@ -334,7 +334,7 @@ const dwarf = [
         }
     ]
 
-const elf = [
+const Elf = [
         {
             "child": [
                 "Ael", 
@@ -547,7 +547,7 @@ const elf = [
         }
     ]
 
-const gnome = [
+const Gnome = [
         {
             "clan": [
                 "Albaratie", 
@@ -708,7 +708,7 @@ const gnome = [
         }
     ]
     
-const halfling = [
+const Halfling = [
         {
             "clan": [
                 "Appleblossom",
@@ -869,7 +869,7 @@ const halfling = [
         }
     ]
 
-const halforc = [
+const Halforc = [
         {
             "female": [
                 "Arha",
@@ -978,7 +978,7 @@ const halforc = [
         }
     ]
 
-const lizardfolk = [
+const Lizardfolk = [
         {
             "general": [
                 "Achuak (green)",
@@ -1005,7 +1005,7 @@ const lizardfolk = [
         }
     ]
 
-const tiefling = [
+const Tiefling = [
         {
             "virtue": [
                 "Ambition",

@@ -22,10 +22,8 @@
             </select>
         </div>
         <div id="gender">
-            <select v-model="gender" v=on:change="">
-                <option value="Female">Female</option>
-                <option value="Male">Male</option>
-                <option value="Other">Other</option>
+            <select v-model="gender" v-on:change="determineNames()">
+                <option v-for="gender of genders" v-bind:value="gender">[[gender]]</option>
             </select>
         </div>
         <h2>Enter your own or click to randomize</h2>
@@ -39,6 +37,7 @@
                 <option v-for="ethnicity in ethnicityList" v-bind:value="ethnicity">[[ethnicity]]</option>
             </select>
         </div>
+        <div v-if="race === 'Dwarf'" >Duergar?<input type="checkbox"></div>
         <div id="first-name">
             <input type="text" placeholder="First name">
             <button>Roll</button>

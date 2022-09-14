@@ -61,7 +61,7 @@ const racesWithNames = [
     "Elf",
     "Gnome",
     "Halfling",
-    "Half-Orc",
+    "Halforc",
     "Tiefling",
     "Lizardfolk"
 ]

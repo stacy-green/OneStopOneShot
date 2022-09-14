@@ -1,5 +1,5 @@
 const human = {
-        "arabic": [
+        "Arabic": [
             {
                 "female": [
                     "Aaliyah",
@@ -106,7 +106,7 @@ const human = {
                 ]
             }
         ],
-        "celtic": [
+        "Celtic": [
             {
                 "female": [
                     "Aife",
@@ -214,7 +214,7 @@ const human = {
                 ]
             }
         ],
-        "chinese": [
+        "Chinese": [
             {
                 "female": [
                     "Ai",
@@ -321,7 +321,7 @@ const human = {
                 ]
             }
         ],
-        "egyptian": [
+        "Egyptian": [
             {
                 "female": [
                     "A'at",
@@ -428,7 +428,7 @@ const human = {
                 ]
             }
         ],
-        "english": [
+        "English": [
             {
                 "female": [
                     "Adelaide",
@@ -534,7 +534,7 @@ const human = {
                 ]
             }
         ],
-        "french": [
+        "French": [
             {
                 "female": [
                     "Aalis",
@@ -642,7 +642,7 @@ const human = {
                 ]
             }
         ],
-        "german": [
+        "German": [
             {
                 "female": [
                     "Adelhayt",
@@ -750,7 +750,7 @@ const human = {
                 ]
             }
         ],
-        "indian": [
+        "Indian": [
             {
                 "female": [
                     "Abha",
@@ -858,7 +858,7 @@ const human = {
                 ]
             }
         ],
-        "mesoamerican": [
+        "Mesoamerican": [
             {
                 "female": [
                     "Ahuiliztli",
@@ -964,7 +964,7 @@ const human = {
                 ]
             }
         ],
-        "japanese": [
+        "Japanese": [
             {
                 "female": [
                     "Aika",
@@ -1071,7 +1071,7 @@ const human = {
                 ]
             }
         ],
-        "niger-congo": [
+        "Niger-Congo": [
             {
                 "female": [
                     "Abebi",
@@ -1179,7 +1179,7 @@ const human = {
                 ]
             }
         ],
-        "norse": [
+        "Norse": [
             {
                 "female": [
                     "Alfhild",
@@ -1286,7 +1286,7 @@ const human = {
                 ]
             }
         ],
-        "polynesian": [
+        "Polynesian": [
             {
                 "female": [
                     "Ahulani",
@@ -1394,7 +1394,7 @@ const human = {
                 ]
             }
         ],
-        "roman": [
+        "Roman": [
             {
                 "female": [
                     "Aelia",
@@ -1499,7 +1499,7 @@ const human = {
                 ]
             }
         ],
-        "slavic": [
+        "Slavic": [
             {
                 "female": [
                     "Agripina",
@@ -1607,7 +1607,7 @@ const human = {
                 ]
             }
         ],
-        "spanish": [
+        "Spanish": [
             {
                 "female": [
                     "Abella",
@@ -1713,7 +1713,7 @@ const human = {
                 ]
             }
         ],
-        "greek": [
+        "Greek": [
             {
                 "female": [
                     "Acantha",
