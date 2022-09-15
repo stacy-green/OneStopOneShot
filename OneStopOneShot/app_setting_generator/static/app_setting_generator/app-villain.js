@@ -48,21 +48,50 @@ const app = Vue.createApp({
 
         rollOnTable: function(list) {
             if (list === this.firstNames){
-                console.log(list)
+                if(this.virtueBool === true && this.race === "Tiefling") {
+                    let listIndex = Math.floor(Math.random() * this.virtueNames.length)
+                    this.firstName = this.virtueNames[listIndex]
+                } else if (this.childBool === true && this.race === "Elf") {
+                    let listIndex = Math.floor(Math.random() * this.childNames.length)
+                    this.firstName = this.childNames[listIndex]
+                } else {
+                    let listIndex = Math.floor(Math.random() * this.firstNames.length)
+                    this.firstName = this.firstNames[listIndex]
+                }
+                // console.log(list)
             } else if (list === this.clanNames) {
-                console.log(list)
+                if(this.duergarBool === true && this.race === "Dwarf") {
+                    let listIndex = Math.floor(Math.random() * this.duergarClanNames.length)
+                    this.clanName = this.duergarClanNames[listIndex]
+                } else {
+                    let listIndex = Math.floor(Math.random() * this.clanNames.length)
+                    this.clanName = this.clanNames[listIndex]
+                }
+                // console.log(list)
             } else if (list === this.typeVillainList) {
-                console.log(list)
+                let listIndex = Math.floor(Math.random() * this.typeVillainList.length)
+                this.typeVillain = this.typeVillainList[listIndex]
+                // console.log(list)
             } else if (list === this.organizationList) {
-                console.log(list)
+                let listIndex = Math.floor(Math.random() * this.organizationList.length)
+                this.organization = this.organizationList[listIndex]
+                // console.log(list)
             } else if (list === this.motivationList) {
-                console.log(list)
+                let listIndex = Math.floor(Math.random() * this.motivationList.length)
+                this.motivation = this.motivationList[listIndex]
+                // console.log(list)
             } else if (list === this.secretList) {
-                console.log(list)
+                let listIndex = Math.floor(Math.random() * this.secretList.length)
+                this.secret = this.secretList[listIndex]
+                // console.log(list)
             } else if (list === this.fearList) {
-                console.log(list)
+                let listIndex = Math.floor(Math.random() * this.fearList.length)
+                this.fear = this.fearList[listIndex]
+                // console.log(list)
             } else if (list === this.lifeEventList) {
-                console.log(list)
+                let listIndex = Math.floor(Math.random() * this.lifeEventList.length)
+                this.lifeEvent = this.lifeEventList[listIndex]
+                // console.log(this.lifeEvent)
             }
 
         },
@@ -266,6 +295,7 @@ const app = Vue.createApp({
         this.duergarClanNames = Dwarf[0].duergarclan
         this.racesWithClans = racesWithClanNames
         this.ethnicityList = Object.keys(human)
+        this.virtueNames = Tiefling[0].virtue
     },
     
     mounted: function() {
