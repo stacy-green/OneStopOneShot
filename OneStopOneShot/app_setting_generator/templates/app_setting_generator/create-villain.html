@@ -37,7 +37,7 @@
                 </select>
             </div>
             <h2>Enter your own or click to randomize</h2>
-            <h4 v-if="hasNames === false">[[message]] <input type="checkbox" v-model="useOtherNamesBool"></h4>
+            {% comment %} <h4 v-if="hasNames === false">[[message]] <input type="checkbox" v-model="useOtherNamesBool"></h4> {% endcomment %}
             <div v-if="race === 'Human'">
                 <select v-model="ethnicity" v-on:change="determineNames()">
                     <option v-for="ethnicity in ethnicityList" v-bind:value="ethnicity">[[ethnicity]]</option>

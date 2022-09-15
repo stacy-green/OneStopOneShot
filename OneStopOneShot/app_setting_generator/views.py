@@ -9,8 +9,14 @@ from .models import Villain
 #########################################################################################################
 
 def index(request):
+    villains = Villain.objects.filter(user=request.user)
+    data = list(villains.values())
+    # data is a list of dictionaries with model fields as keys
+    print(data)
+    context = {
 
-    return render(request, "app_setting_generator/index-setting.html")
+    }
+    return render(request, "app_setting_generator/index-setting.html", context)
 
 def create_villain(request):
 
