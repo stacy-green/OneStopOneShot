@@ -11,11 +11,17 @@ const app = Vue.createApp({
             lastName: "",
             race: "Dragonborn",
             organization: "",
+            organizationList: [],
             lifeEvent: "",
+            lifeEventList: [],
             motivation: "",
+            motivationList: [],
             typeVillain: "",
+            typeVillainList: [],
             secret: "",
+            secretList: [],
             fear: "",
+            fearList: [],
             gender: "Female",
             playableRaces: [],
             firstNames: [],
@@ -28,8 +34,8 @@ const app = Vue.createApp({
             hasNames: false,
             ethnicityList: [],
             ethnicity: "Arabic",
-            genders: ["Female", "Male", "Other"]
-
+            genders: ["Female", "Male", "Other"],
+            duergarYesNo: false,
 
 
         }
@@ -149,7 +155,7 @@ const app = Vue.createApp({
                             this.firstNames.push(name)
                         }
                     }
-                } else if (this.race === "Halforc") {
+                } else if (this.race === "Half-Orc") {
                     if (this.gender === "Female") {
                         for (let name of Halforc[0].female) {
                             this.firstNames.push(name)
@@ -188,8 +194,8 @@ const app = Vue.createApp({
                         }
                     }
                 }
-                console.log(this.firstNames)
-                console.log(this.clanNames)
+                // console.log(this.firstNames)
+                // console.log(this.clanNames)
                 this.hasNames = true
             } else if (this.race === "Human") {
                 if (this.gender === "Female") {
@@ -208,11 +214,11 @@ const app = Vue.createApp({
                         this.firstNames.push(name)
                     }
                 }
-                console.log(this.firstNames)
+                // console.log(this.firstNames)
                 this.hasNames = true
             } else {
                 this.hasNames = false
-                this.message = `${this.race} has no prepared names`
+                this.message = `${this.race} has no prepared names. Use other names?`
             }
             
         },
@@ -225,25 +231,22 @@ const app = Vue.createApp({
 
     created: function() {
         
-
-        
-        for (let race of playable_races) {
-            this.playableRaces.push(race)
-        }
-        for (let name of Elf[0].child) {
-            this.childNames.push(name)
-        }
-        for (let name of Dwarf[0].duergarclan) {
-            this.duergarClanNames.push(name)
-        }
-        for (let race of racesWithClanNames) {
-            this.racesWithClans.push(race)
-        }
-        console.log(this.racesWithClans)
+        this.lifeEventList = events
+        this.fearList = fears
+        this.secretList = secrets
+        this.organizationList = organizations
+        this.typeVillainList = villainTypes
+        this.motivationList = motivations
+        this.playableRaces = playable_races
+        this.childNames = Elf[0].child
+        this.duergarClanNames = Dwarf[0].duergarclan
+        this.racesWithClans = racesWithClanNames
+        this.ethnicityList = Object.keys(human)
     },
     
     mounted: function() {
         this.determineClan()
+        this.determineNames()
     },
 
 }).mount("#app")

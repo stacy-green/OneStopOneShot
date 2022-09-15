@@ -27,17 +27,15 @@
             </select>
         </div>
         <h2>Enter your own or click to randomize</h2>
-        <h4 v-if="hasNames === false">[[message]]</h4>
-        <div v-if="race ==='Tiefling'" id="virtue-name">
-            <input type="text" placeholder="Virtue name">
-            <button>Roll</button>
-        </div>
+        <h4 v-if="hasNames === false">[[message]] <input type="checkbox"></h4>
         <div v-if="race === 'Human'">
             <select v-model="ethnicity" v-on:change="determineNames()">
                 <option v-for="ethnicity in ethnicityList" v-bind:value="ethnicity">[[ethnicity]]</option>
             </select>
         </div>
-        <div v-if="race === 'Dwarf'" >Duergar?<input type="checkbox"></div>
+        <div v-if="race === 'Dwarf'">Duergar Clan?<input type="checkbox" v-model="duergarYesNo"></div>
+        <div v-if="race === 'Tiefling'">Virtue Name?<input type="checkbox"></div>
+        <div v-if="race === 'Elf'">Child Name?<input type="checkbox"></div>
         <div id="first-name">
             <input type="text" placeholder="First name">
             <button>Roll</button>
@@ -67,7 +65,7 @@
             <button>Roll</button>
         </div>
         <div id="life-event">
-            <input type="text" placeholder="Life event">
+            <input type="text" placeholder="Life event" style="width: 200px; height: 400px;">
             <button>Roll</button>
         </div>
     </div>

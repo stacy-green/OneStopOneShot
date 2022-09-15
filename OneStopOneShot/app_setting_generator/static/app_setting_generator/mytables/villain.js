@@ -1,5 +1,5 @@
   
-const event = [
+const events = [
         "The love of your young life died in your arms during a raider attack.", 
         "You bravely fought off several bandits as a young teenager.", 
         "You went into a series of ancient ruins on a dare and almost died — a family member or loved one saved you.", 
@@ -35,7 +35,7 @@ const event = [
         "You were imprisoned for a crime you didn't commit."
     ]
 
-const fear = [
+const fears = [
         "True Love. I fear true love, of being in the presence of a purity of emotional honesty that I will never know.", 
         "Famine. I have seen those who die by starvation, a death of indignity. I know how easily I too could suffer such a fate. It puts a sick feeling in my gut, one that is not easily remedied.", 
         "Deep Water. I fear the dark abyss of the Sea, the uncertainty of what lurks in those endless depths, and the writhing creatures beneath the waves that may seek to steal my soul.", 
@@ -46,7 +46,7 @@ const fear = [
         "Undeath. I've witnessed the terrors of undeath, of spectres and skeletons, and so I fear my corpse may not stay motionless forever…"
     ]
 
-const secret = [
+const secrets = [
         "I have a Child I didn't raise.", 
         "I disposed of a Dagger that may have been evidence in a Murder.", 
         "I once sold out a friend for 100 Gold Pieces.", 
@@ -79,7 +79,7 @@ const secret = [
         "Twisted Mercy: I think the worst part about the tribesmen I fought was that they did not kill me. One grabbed me by the throat and screamed I wasn't fighting properly, that I wasn't giving it my all. That they knew I had a purpose, a power, and that if I wasn't going to fight to their joy, I may as well leave. To be given “mercy” by such wild peoples, I cannot stand for that mark on my honour."
     ]
 
-const organization = [
+const organizations = [
         "Powerful Organization (business, guild, etc)", 
         "Secret Society/Conspiracy", 
         "Cultists", 
@@ -108,7 +108,7 @@ const organization = [
         "Ninjas"
     ]
     
-const villainType = [
+const villainTypes = [
         "Assassin", 
         "Bounty Hunter", 
         "Criminal", 
@@ -148,7 +148,7 @@ const villainType = [
         "Possessed Hero or Priest"
     ]
 
-const motivation = [
+const motivations = [
         "Romance: I want to marry the princess.", 
         "Revenge - ruin a hero: I want to ruin the King.", 
         "To distinguish oneself: I want the princess to respect me.", 
