@@ -15,20 +15,24 @@
     <script src="{% static 'app_setting_generator/mytables/villain.js' %}"></script>
     
     <style>
-
+        textarea {
+            width: 300px;
+            height: 100px;
+        }
     </style>
 
 </head>
 <body>
     <div id="app">
-        <form action="">
+        <form method="POST" action="{% url 'save_villain'%}">
+            {% csrf_token %}
             <div id="race">
-                <select v-model="race" v-on:change="determineClan(), determineNames()">
+                <select name="race" v-model="race" v-on:change="determineClan(), determineNames()">
                     <option v-for="playablerace in playableRaces" v-bind:value="playablerace">[[playablerace]]</option>
                 </select>
             </div>
             <div id="gender">
-                <select v-model="gender" v-on:change="determineNames()">
+                <select name="gender" v-model="gender" v-on:change="determineNames()">
                     <option v-for="gender of genders" v-bind:value="gender">[[gender]]</option>
                 </select>
             </div>
@@ -43,35 +47,35 @@
             <div v-if="race === 'Tiefling'">Virtue Name?<input type="checkbox" v-model="virtueBool"></div>
             <div v-if="race === 'Elf'">Child Name?<input type="checkbox" v-model="childBool"></div>
             <div id="first-name">
-                <input type="text" placeholder="First name" v-bind:value="firstName">
+                <input name="first_name" type="text" placeholder="First name" v-bind:value="firstName">
                 <button type="button" v-on:click="rollOnTable(firstNames)">Roll</button>
             </div>
             <div v-if="hasClan === true" id="clan-name">
-                <input type="text" placeholder="Clan name" v-bind:value="clanName">
+                <input name="clan_name" type="text" placeholder="Clan name" v-bind:value="clanName">
                 <button type="button" v-on:click="rollOnTable(clanNames)">Roll</button>
             </div>
             <div id="villain-type">
-                <input type="text" placeholder="Type of villain" v-bind:value="typeVillain">
+                <input name="villain_type" type="text" placeholder="Type of villain" v-bind:value="typeVillain">
                 <button type="button" v-on:click="rollOnTable(typeVillainList)">Roll</button>
             </div>
             <div id="organization">
-                <input type="text" placeholder="Organization/affiliation" v-bind:value="organization">
+                <input name="organization" type="text" placeholder="Organization/affiliation" v-bind:value="organization">
                 <button type="button" v-on:click="rollOnTable(organizationList)">Roll</button>
             </div>
             <div id="motivation">
-                <textarea id="motivation-text" placeholder="Motivation" v-bind:value="motivation"></textarea>
+                <textarea name="motivation" id="motivation-text" placeholder="Motivation" v-bind:value="motivation"></textarea>
                 <button type="button" v-on:click="rollOnTable(motivationList)">Roll</button>
             </div>
             <div id="secret">
-                <textarea id="secret-text" placeholder="Secret" v-bind:value="secret"></textarea>
+                <textarea name="secret" id="secret-text" placeholder="Secret" v-bind:value="secret"></textarea>
                 <button type="button" v-on:click="rollOnTable(secretList)">Roll</button>
             </div>
             <div id="fear">
-                <textarea id="fear-text" placeholder="Fear" v-bind:value="fear"></textarea>
+                <textarea name="fear" id="fear-text" placeholder="Fear" v-bind:value="fear"></textarea>
                 <button type="button" v-on:click="rollOnTable(fearList)">Roll</button>
             </div>
             <div id="life-event">
-                <textarea id="life-event-text" placeholder="Life event" v-bind:value="lifeEvent"></textarea>
+                <textarea name="life_event" id="life-event-text" placeholder="Life event" v-bind:value="lifeEvent"></textarea>
                 <button type="button" v-on:click="rollOnTable(lifeEventList)">Roll</button>
             </div>
             <input type="submit" value="Save Villain">
