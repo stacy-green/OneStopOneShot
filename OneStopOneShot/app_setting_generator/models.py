@@ -1,5 +1,5 @@
 from django.db import models
-
+from app_OSOS.models import User
 # Create your models here.
 
 class Villain(models.Model):
@@ -14,9 +14,10 @@ class Villain(models.Model):
     secret = models.TextField(blank=True, null=True)
     fear = models.TextField(blank=True, null=True)
     life_event = models.TextField(blank=True, null=True)
+    user = models.ForeignKey(User, related_name="villains", on_delete=models.CASCADE, null=True)
     
     def __str__(self):
-        return f"{self.last_name}, {self.first_name}"
+        return f"Name: {self.first_name}, Race: {self.race}, Gender: {self.gender}"
 
 # class NPC(models.Model):
 #     first_name = models.CharField(max_length=255, blank=True, null=True)

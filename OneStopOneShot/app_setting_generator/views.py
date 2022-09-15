@@ -22,22 +22,18 @@ def save_villain(request):
         if form.is_valid():
             villain = Villain()
             villain.race = form.cleaned_data['race']
-            print(villain.race)
-            # todo_item = TodoItem()
-            # todo_item.text = form.cleaned_data['text']
-        #  grocery_item = GroceryItem()
-        # grocery_item.description = form.get("description")
-            pass
-    # race
-    # gender
-    # first_name
-    # clan_name
-    # villain_type
-    # organization
-    # motivation
-    # secret
-    # fear
-    # life_event
+            villain.gender = form.cleaned_data['gender']
+            villain.first_name = form.cleaned_data['first_name']
+            villain.clan_name = form.cleaned_data['clan_name']
+            villain.villain_type = form.cleaned_data['villain_type']
+            villain.organization = form.cleaned_data['organization']
+            villain.motivation = form.cleaned_data['motivation']
+            villain.secret = form.cleaned_data['secret']
+            villain.fear = form.cleaned_data['fear']
+            villain.life_event = form.cleaned_data['life_event']
+            villain.user = request.user
+            villain.save()
+
     return redirect("index-setting")
 
 def create_NPC(request):
