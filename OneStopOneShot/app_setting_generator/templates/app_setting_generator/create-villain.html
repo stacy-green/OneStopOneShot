@@ -47,7 +47,7 @@
             <div v-if="race === 'Tiefling'">Virtue Name?<input type="checkbox" v-model="virtueBool"></div>
             <div v-if="race === 'Elf'">Child Name?<input type="checkbox" v-model="childBool"></div>
             <div id="first-name">
-                <input name="first_name" type="text" placeholder="First name" v-bind:value="firstName">
+                <input name="first_name" required type="text" placeholder="First name" v-bind:value="firstName">
                 <button type="button" v-on:click="rollOnTable(firstNames)">Roll</button>
             </div>
             <div v-if="hasClan === true" id="clan-name">
