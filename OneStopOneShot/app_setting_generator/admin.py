@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Villain, NPC
+from .models import Villain
 
 admin.site.register(Villain)
-admin.site.register(NPC)
+# admin.site.register(NPC)

@@ -8,7 +8,7 @@ const app = Vue.createApp({
             jsondata: [],
             message: "",
             firstName: "",
-            lastName: "",
+            clanName: "",
             race: "Dragonborn",
             organization: "",
             organizationList: [],
@@ -35,13 +35,37 @@ const app = Vue.createApp({
             ethnicityList: [],
             ethnicity: "Arabic",
             genders: ["Female", "Male", "Other"],
-            duergarYesNo: false,
+            duergarBool: false,
+            virtueBool: false,
+            childBool: false,
+            useOtherNamesBool: false,
 
 
         }
     },
 
     methods: {
+
+        rollOnTable: function(list) {
+            if (list === this.firstNames){
+                console.log(list)
+            } else if (list === this.clanNames) {
+                console.log(list)
+            } else if (list === this.typeVillainList) {
+                console.log(list)
+            } else if (list === this.organizationList) {
+                console.log(list)
+            } else if (list === this.motivationList) {
+                console.log(list)
+            } else if (list === this.secretList) {
+                console.log(list)
+            } else if (list === this.fearList) {
+                console.log(list)
+            } else if (list === this.lifeEventList) {
+                console.log(list)
+            }
+
+        },
 
         determineClan: function() {
             if (this.racesWithClans.includes(this.race)){
@@ -250,12 +274,3 @@ const app = Vue.createApp({
     },
 
 }).mount("#app")
-
-// first_name = models.CharField(max_length=255, blank=True, null=True)
-// last_name = models.CharField(max_length=255, blank=True, null=True)
-// race = models.CharField(max_length=255, blank=True, null=True)
-// villain = models.CharField(max_length=255, blank=True, null=True)
-// motivations = models.CharField(max_length=255, blank=True, null=True)
-// secret = models.CharField(max_length=255, blank=True, null=True)
-// fear = models.CharField(max_length=255, blank=True, null=True)
-// life_event = models.CharField(max_length=255, blank=True, null=True)

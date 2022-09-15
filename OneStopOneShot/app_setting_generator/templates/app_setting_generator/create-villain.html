@@ -13,61 +13,69 @@
     <script src="{% static 'app_setting_generator/mytables/othernames.js' %}"></script>
     <script src="{% static 'app_setting_generator/mytables/humannames.js' %}"></script>
     <script src="{% static 'app_setting_generator/mytables/villain.js' %}"></script>
+    
+    <style>
+
+    </style>
+
 </head>
 <body>
     <div id="app">
-        <div id="race">
-            <select v-model="race" v-on:change="determineClan(), determineNames()">
-                <option v-for="playablerace in playableRaces" v-bind:value="playablerace">[[playablerace]]</option>
-            </select>
-        </div>
-        <div id="gender">
-            <select v-model="gender" v-on:change="determineNames()">
-                <option v-for="gender of genders" v-bind:value="gender">[[gender]]</option>
-            </select>
-        </div>
-        <h2>Enter your own or click to randomize</h2>
-        <h4 v-if="hasNames === false">[[message]] <input type="checkbox"></h4>
-        <div v-if="race === 'Human'">
-            <select v-model="ethnicity" v-on:change="determineNames()">
-                <option v-for="ethnicity in ethnicityList" v-bind:value="ethnicity">[[ethnicity]]</option>
-            </select>
-        </div>
-        <div v-if="race === 'Dwarf'">Duergar Clan?<input type="checkbox" v-model="duergarYesNo"></div>
-        <div v-if="race === 'Tiefling'">Virtue Name?<input type="checkbox"></div>
-        <div v-if="race === 'Elf'">Child Name?<input type="checkbox"></div>
-        <div id="first-name">
-            <input type="text" placeholder="First name">
-            <button>Roll</button>
-        </div>
-        <div v-if="hasClan === true" id="clan-name">
-            <input type="text" placeholder="Clan name">
-            <button>Roll</button>
-        </div>
-        <div id="villain-type">
-            <input type="text" placeholder="Type of villain">
-            <button>Roll</button>
-        </div>
-        <div id="organization">
-            <input type="text" placeholder="Organization/affiliation">
-            <button>Roll</button>
-        </div>
-        <div id="motivation">
-            <input type="text" placeholder="Motivation">
-            <button>Roll</button>
-        </div>
-        <div id="secret">
-            <input type="text" placeholder="Secret">
-            <button>Roll</button>
-        </div>
-        <div id="fear">
-            <input type="text" placeholder="Fear">
-            <button>Roll</button>
-        </div>
-        <div id="life-event">
-            <input type="text" placeholder="Life event" style="width: 200px; height: 400px;">
-            <button>Roll</button>
-        </div>
+        <form action="">
+            <div id="race">
+                <select v-model="race" v-on:change="determineClan(), determineNames()">
+                    <option v-for="playablerace in playableRaces" v-bind:value="playablerace">[[playablerace]]</option>
+                </select>
+            </div>
+            <div id="gender">
+                <select v-model="gender" v-on:change="determineNames()">
+                    <option v-for="gender of genders" v-bind:value="gender">[[gender]]</option>
+                </select>
+            </div>
+            <h2>Enter your own or click to randomize</h2>
+            <h4 v-if="hasNames === false">[[message]] <input type="checkbox" v-model="useOtherNamesBool"></h4>
+            <div v-if="race === 'Human'">
+                <select v-model="ethnicity" v-on:change="determineNames()">
+                    <option v-for="ethnicity in ethnicityList" v-bind:value="ethnicity">[[ethnicity]]</option>
+                </select>
+            </div>
+            <div v-if="race === 'Dwarf'">Duergar Clan?<input type="checkbox" v-model="duergarBool"></div>
+            <div v-if="race === 'Tiefling'">Virtue Name?<input type="checkbox" v-model="virtueBool"></div>
+            <div v-if="race === 'Elf'">Child Name?<input type="checkbox" v-model="childBool"></div>
+            <div id="first-name">
+                <input type="text" placeholder="First name" v-bind:value="firstName">
+                <button type="button" v-on:click="rollOnTable(firstNames)">Roll</button>
+            </div>
+            <div v-if="hasClan === true" id="clan-name">
+                <input type="text" placeholder="Clan name" v-bind:value="clanName">
+                <button type="button" v-on:click="rollOnTable(clanNames)">Roll</button>
+            </div>
+            <div id="villain-type">
+                <input type="text" placeholder="Type of villain" v-bind:value="typeVillain">
+                <button type="button" v-on:click="rollOnTable(typeVillainList)">Roll</button>
+            </div>
+            <div id="organization">
+                <input type="text" placeholder="Organization/affiliation" v-bind:value="organization">
+                <button type="button" v-on:click="rollOnTable(organizationList)">Roll</button>
+            </div>
+            <div id="motivation">
+                <textarea id="motivation-text" value="" placeholder="Motivation" v-bind:value="motivation"></textarea>
+                <button type="button" v-on:click="rollOnTable(motivationList)">Roll</button>
+            </div>
+            <div id="secret">
+                <textarea id="secret-text" value="" placeholder="Secret" v-bind:value="secret"></textarea>
+                <button type="button" v-on:click="rollOnTable(secretList)">Roll</button>
+            </div>
+            <div id="fear">
+                <textarea id="fear-text" value="" placeholder="Fear" v-bind:value="fear"></textarea>
+                <button type="button" v-on:click="rollOnTable(fearList)">Roll</button>
+            </div>
+            <div id="life-event">
+                <textarea id="life-event-text" value="" placeholder="Life event" v-bind:value="lifeEvent"></textarea>
+                <button type="button" v-on:click="rollOnTable(lifeEventList)">Roll</button>
+            </div>
+            <input type="submit" value="Save Villain">
+        </form>
     </div>
 </body>
 </html>

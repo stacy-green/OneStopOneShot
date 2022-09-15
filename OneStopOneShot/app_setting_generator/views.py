@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import request, HttpResponse, JsonResponse
 import json
 from django.contrib import auth
-from .models import Villain, NPC
+from .models import Villain
 
 #########################################################################################################
 
