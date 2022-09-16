@@ -38,12 +38,21 @@ def save_villain(request, villain_id):
     return redirect("index-setting")
 
 def detail_villain(request, villain_id):
-    villain = Villain.objects.get(id=villain_id)
-    if villain.user == request.user:
-
-        return HttpResponse("OK")
+    villain = Villain.objects.filter(id=villain_id)
+    villain = list(villain.values())
+    if villain[0]["user_id"] == request.user.id:
+        context = {
+            "villain": villain[0]
+        }
+        return render(request, "app_setting_generator/detail-villain.html", context)
     else:
         return redirect("index-setting") 
+
+def delete_villain(request, villain_id):
+    villain = Villain.objects.get(id=villain_id)
+    if villain.user == request.user:
+        villain.delete()
+    return redirect("index-setting")
 
 def create_NPC(request):
 
