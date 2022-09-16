@@ -11,18 +11,14 @@ from .models import Villain
 def index(request):
     villains = Villain.objects.filter(user=request.user)
     data = list(villains.values())
-    # data is a list of dictionaries with model fields as keys
-    print(data)
-    context = {
-
-    }
+    # print(data)
+    context = {"data": data}
     return render(request, "app_setting_generator/index-setting.html", context)
 
 def create_villain(request):
-
     return render(request, "app_setting_generator/create-villain.html")
 
-def save_villain(request):
+def save_villain(request, villain_id):
     if request.method == "POST":
         form = NewVillainForm(request.POST)
         if form.is_valid():
@@ -39,8 +35,15 @@ def save_villain(request):
             villain.life_event = form.cleaned_data['life_event']
             villain.user = request.user
             villain.save()
-
     return redirect("index-setting")
+
+def detail_villain(request, villain_id):
+    villain = Villain.objects.get(id=villain_id)
+    if villain.user == request.user:
+
+        return HttpResponse("OK")
+    else:
+        return redirect("index-setting") 
 
 def create_NPC(request):
 

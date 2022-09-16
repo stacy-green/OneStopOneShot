@@ -11,8 +11,18 @@
     <script defer src="{% static 'app_setting_generator/app-setting.js' %}"></script>
 </head>
 <body>
-    <h1>OK</h1>
     <div id="app">
+    {% for villain in data %}
+    <div>
+        <p>
+            Name: <a href=" {% url 'detail_villain' villain.id %} ">{{villain.first_name}}</a>, {{villain.race}} 
+        </p>
+        <p>
+            Villain type: {{villain.villain_type}}
+        </p>
+    </div>
+    <br>
+    {% endfor %}
         [[message]]
     </div>
     

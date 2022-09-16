@@ -283,7 +283,6 @@ const app = Vue.createApp({
     },
 
     created: function() {
-        
         this.lifeEventList = events
         this.fearList = fears
         this.secretList = secrets

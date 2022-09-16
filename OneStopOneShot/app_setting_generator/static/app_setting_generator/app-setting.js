@@ -7,7 +7,6 @@ const app = Vue.createApp({
         return {
             jsondata: [],
             message: "Setting works",
-
         }
     },
 
