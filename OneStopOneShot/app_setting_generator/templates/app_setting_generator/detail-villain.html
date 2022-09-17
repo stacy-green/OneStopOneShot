@@ -7,16 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    {{villain.first_name}}
-    {{villain.clan_name}}
-    {{villain.race}}
-    {{villain.gender}}
-    {{villain.villain_type}}
-    {{villain.organization}}
-    {{villain.motivation}}
-    {{villain.secret}}
-    {{villain.fear}}
-    {{villain.life_event}}
-    <a href="{% url 'delete_villain' villain.id%}">Delete</a>
+    <div> Name: {{villain.first_name}} {% if villain.clan_name %}{{villain.clan_name}}{% endif %} </div>
+    <div> Race: {{villain.race}}</div>
+    <div> Gender: {{villain.gender}}</div>
+    <div>{% if villain.villain_type %} Type: {{villain.villain_type}} {% else %}No type{% endif %}</div>
+    <div>{% if villain.organization %} Organization: {{villain.organization}}{% else %}No organization{% endif %}</div>
+    <div>{% if villain.motivation %} Motivation: {{villain.motivation}}{% else %}No motivation{% endif %}</div>
+    <div>{% if villain.secret %} Secret: {{villain.secret}}{% else %}No secret{% endif %}</div>
+    <div>{% if villain.fear %} Fear: {{villain.fear}}{% else %}{% endif %}No fear</div>
+    <div>{% if villain.life_event %} Life event: {{villain.life_event}}{% else %}No life event{% endif %}</div>
+    <div><a href="{% url 'delete_villain' villain.id %}">Delete</a></div>
 </body>
 </html>

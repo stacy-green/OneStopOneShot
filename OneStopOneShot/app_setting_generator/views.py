@@ -18,7 +18,7 @@ def index(request):
 def create_villain(request):
     return render(request, "app_setting_generator/create-villain.html")
 
-def save_villain(request, villain_id):
+def save_villain(request):
     if request.method == "POST":
         form = NewVillainForm(request.POST)
         if form.is_valid():
