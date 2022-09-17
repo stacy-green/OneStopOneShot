@@ -8,5 +8,15 @@
 </head>
 <body>
     {{villain.first_name}}
+    {{villain.clan_name}}
+    {{villain.race}}
+    {{villain.gender}}
+    {{villain.villain_type}}
+    {{villain.organization}}
+    {{villain.motivation}}
+    {{villain.secret}}
+    {{villain.fear}}
+    {{villain.life_event}}
+    <a href="{% url 'delete_villain' villain.id%}">Delete</a>
 </body>
 </html>
