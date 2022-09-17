@@ -1,5 +1,5 @@
 from django.db import models
-from app_OSOS.models import User
+from app_OSOS.models import User, Portfolio
 # Create your models here.
 
 class Villain(models.Model):
@@ -15,6 +15,7 @@ class Villain(models.Model):
     fear = models.TextField(blank=True, null=True)
     life_event = models.TextField(blank=True, null=True)
     user = models.ForeignKey(User, related_name="villains", on_delete=models.CASCADE, null=True)
+    portfolio = models.ForeignKey(Portfolio, related_name="villains", on_delete=models.CASCADE, null=True)
     
     def __str__(self):
         return f"Name: {self.first_name}, Race: {self.race}, Gender: {self.gender}"
