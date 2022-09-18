@@ -49,6 +49,10 @@ const app = Vue.createApp({
             fetch(`save/?name=${map}`)
         },
 
+        portfolioRedirect: function(id) {
+            window.location = `../../updateportfolio/${id}`
+        },
+
     },
 
     watch: {

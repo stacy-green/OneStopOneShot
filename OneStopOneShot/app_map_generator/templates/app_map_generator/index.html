@@ -12,7 +12,7 @@
 <body>
     <h1>It works</h1>
     <div id="app">
-        <button id="save-map-btn" v-on:click="saveMap(selectedMap)">Save Map</button>
+        <button id="save-map-btn" v-on:click="saveMap(selectedMap), portfolioRedirect({{portfolio.id}})">Save Map</button>
         <div id="size-select-div">
             <select v-model="selectedMapSize" v-on:change="loadMaps(), buildMapList()" >
                 <option selected disabled value="0">Select Map Size</option>

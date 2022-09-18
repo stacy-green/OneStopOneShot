@@ -26,10 +26,8 @@ def save_map(request, portfolio_id):
     map_name = request.GET.get("name")
     new_map = Map.objects.get(img=map_name)
     portfolio.maps.add(new_map)
-    # new_map.portfolios.add(portfolio)
-    # new_map.portfolio.set(portfolio_id)
     new_map.save()
-    return HttpResponse("OK")
+    return HttpResponse("Map saved")
 
 def update_map(request):
 
