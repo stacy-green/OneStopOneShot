@@ -186,7 +186,9 @@ const app = Vue.createApp({
             let partyString = JSON.stringify(this.party)
             let monsterString = JSON.stringify(this.encounterList)
             fetch(`/encounter/save/${portfolio_id}/?par=${partyString}&mon=${monsterString}&exp=${this.totalEXP}&adj=${this.adjustedEXP}&dif=${this.encounterDifficulty}`)
-
+            .then(
+                window.location = `../../${portfolio_id}`
+            )
         },
 
     },
