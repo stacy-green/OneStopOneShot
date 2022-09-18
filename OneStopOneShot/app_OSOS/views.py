@@ -29,7 +29,7 @@ def create_portfolio(request):
         portfolio.name = form.cleaned_data['name']
         portfolio.user = request.user
         portfolio.save()
-    return redirect("user_profile")
+    return redirect("portfolio:user_profile")
 
 def update_portfolio(request, portfolio_id):
     portfolio = Portfolio.objects.get(id=portfolio_id)
@@ -40,7 +40,7 @@ def update_portfolio(request, portfolio_id):
         context = {"portfolio": portfolio}
         return render(request, "app_OSOS/update-portfolio.html", context)
     else:
-        return redirect("user_profile")
+        return redirect("portfolio:user_profile")
 
 def display_portfolio(request, portfolio_id):
     portfolio = Portfolio.objects.get(id=portfolio_id)
@@ -60,7 +60,7 @@ def delete_portfolio(request, portfolio_id):
     portfolio = Portfolio.objects.get(id=portfolio_id)
     if portfolio.user == request.user:
         portfolio.delete()
-    return redirect("user_profile")
+    return redirect("portfolio:user_profile")
 
 def login(request):
     # login
