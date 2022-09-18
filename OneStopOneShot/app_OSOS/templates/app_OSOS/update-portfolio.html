@@ -8,8 +8,8 @@
 </head>
 <body>
     <a href="{% url 'setting:create_villain' portfolio.id %}">Add Villain</a>
-    {% comment %} <a href="{% url '' %}">Add Map</a>
-    <a href="{% url '' %}">Add Encounter</a> {% endcomment %}
+    <a href="{% url 'map:index' portfolio.id %}">Add Map</a>
+    {% comment %} <a href="{% url '' %}">Add Encounter</a>  {% endcomment %}
     <a href="{% url 'portfolio:delete_portfolio' portfolio.id %}">Delete Portfolio</a>
 </body>
 </html>

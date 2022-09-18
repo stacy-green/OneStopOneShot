@@ -6,11 +6,12 @@ from app_OSOS.models import Portfolio
 from .models import Map
 # Create your views here.
 
-def index(request):
+def index(request, portfolio_id):
+    portfolio = Portfolio.objects.get(id=portfolio_id)
+    context = {"portfolio": portfolio}
+    return render(request, "app_map_generator/index.html", context)
 
-    return render(request, "app_map_generator/index.html")
-
-def get_maps(request):
+def get_maps(request, portfolio_id):
     selected_size = request.GET.get("size")
     if selected_size == "0":
         map_size = "Small"
