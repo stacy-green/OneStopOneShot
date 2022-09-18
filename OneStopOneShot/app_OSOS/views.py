@@ -35,9 +35,14 @@ def update_portfolio(request, portfolio_id):
     portfolio = Portfolio.objects.get(id=portfolio_id)
     if portfolio.user == request.user:
         encounters = Encounter.objects.filter(portfolio=portfolio_id)
-        battlemap = Map.objects.filter(portfolio=portfolio_id)
-        villain = Villain.objects.filter(portfolio=portfolio_id)
-        context = {"portfolio": portfolio}
+        battlemaps = list(Map.objects.filter(portfolio=portfolio_id))
+        villain = Villain.objects.filter(portfolio=portfolio_id).values()
+        print(battlemaps)
+        context = {
+            "portfolio": portfolio,
+            "villain": villain[0],
+            "battlemaps": battlemaps
+        }
         return render(request, "app_OSOS/update-portfolio.html", context)
     else:
         return redirect("portfolio:user_profile")
