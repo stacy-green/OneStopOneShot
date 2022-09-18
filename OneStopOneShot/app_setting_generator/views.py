@@ -56,9 +56,10 @@ def detail_villain(request, villain_id):
 
 def delete_villain(request, villain_id):
     villain = Villain.objects.get(id=villain_id)
+    portfolio = villain.portfolio.id
     if villain.user == request.user:
         villain.delete()
-    return redirect("setting:index-setting")
+    return redirect("portfolio:update_portfolio", portfolio)
 
 def create_NPC(request):
 

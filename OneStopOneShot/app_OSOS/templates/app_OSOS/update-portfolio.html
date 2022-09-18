@@ -8,7 +8,7 @@
 </head>
 <body>
     <a href="{% url 'setting:create_villain' portfolio.id %}">Add Villain</a>
-    {% for villain in villains %} <div>{{villain.first_name}}</div> {% endfor %}
+    {% for villain in villains %}<div><a href="{% url 'setting:detail_villain' villain.id %}">{{villain.first_name}}</a></div> {% endfor %}
     
     <a href="{% url 'map:index' portfolio.id %}">Add Map</a>
     {% for map in battlemaps %} <img src="../../media/{{map.img}} " alt="{{map.size}} Map">{% endfor %}
