@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import request, HttpResponse, JsonResponse
 import json
 from django.contrib import auth
+from app_OSOS.models import Portfolio
 
 from app_setting_generator.forms import NewVillainForm
 from .models import Villain
@@ -15,10 +16,12 @@ def index(request):
     context = {"data": data}
     return render(request, "app_setting_generator/index-setting.html", context)
 
-def create_villain(request):
-    return render(request, "app_setting_generator/create-villain.html")
+def create_villain(request, portfolio_id):
+    portfolio = Portfolio.objects.get(id=portfolio_id)
+    context = {"portfolio": portfolio}
+    return render(request, "app_setting_generator/create-villain.html", context)
 
-def save_villain(request):
+def save_villain(request, portfolio_id):
     if request.method == "POST":
         form = NewVillainForm(request.POST)
         if form.is_valid():
@@ -34,6 +37,9 @@ def save_villain(request):
             villain.fear = form.cleaned_data['fear']
             villain.life_event = form.cleaned_data['life_event']
             villain.user = request.user
+            new_portfolio = Portfolio.objects.get(id=portfolio_id)
+            villain.portfolio = new_portfolio
+            new_portfolio.save()
             villain.save()
     return redirect("setting:index-setting")
 

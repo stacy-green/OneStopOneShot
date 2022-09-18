@@ -7,7 +7,7 @@
     <title>{{portfolio.name}}</title>
 </head>
 <body>
-    <a href="{% url 'setting:create_villain' %}">Add Villain</a>
+    <a href="{% url 'setting:create_villain' portfolio.id %}">Add Villain</a>
     {% comment %} <a href="{% url '' %}">Add Map</a>
     <a href="{% url '' %}">Add Encounter</a> {% endcomment %}
 </body>
