@@ -41,7 +41,7 @@ def save_villain(request, portfolio_id):
             villain.portfolio = new_portfolio
             new_portfolio.save()
             villain.save()
-    return redirect("setting:index-setting")
+    return redirect("portfolio:update_portfolio", portfolio_id)
 
 def detail_villain(request, villain_id):
     villain = Villain.objects.filter(id=villain_id)
