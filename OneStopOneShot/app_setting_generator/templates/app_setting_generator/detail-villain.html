@@ -16,6 +16,6 @@
     <div>{% if villain.secret %} Secret: {{villain.secret}}{% else %}No secret{% endif %}</div>
     <div>{% if villain.fear %} Fear: {{villain.fear}}{% else %}{% endif %}No fear</div>
     <div>{% if villain.life_event %} Life event: {{villain.life_event}}{% else %}No life event{% endif %}</div>
-    <div><a href="{% url 'delete_villain' villain.id %}">Delete</a></div>
+    <div><a href="{% url 'setting:delete_villain' villain.id %}">Delete</a></div>
 </body>
 </html>

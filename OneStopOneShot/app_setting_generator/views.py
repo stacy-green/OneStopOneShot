@@ -35,7 +35,7 @@ def save_villain(request):
             villain.life_event = form.cleaned_data['life_event']
             villain.user = request.user
             villain.save()
-    return redirect("index-setting")
+    return redirect("setting:index-setting")
 
 def detail_villain(request, villain_id):
     villain = Villain.objects.filter(id=villain_id)
@@ -46,13 +46,13 @@ def detail_villain(request, villain_id):
         }
         return render(request, "app_setting_generator/detail-villain.html", context)
     else:
-        return redirect("index-setting") 
+        return redirect("setting:index-setting") 
 
 def delete_villain(request, villain_id):
     villain = Villain.objects.get(id=villain_id)
     if villain.user == request.user:
         villain.delete()
-    return redirect("index-setting")
+    return redirect("setting:index-setting")
 
 def create_NPC(request):
 

@@ -9,10 +9,10 @@
 <body>
     <h1>OK</h1>
     {% for portfolio in data %}
-    <div>{{portfolio.name}} <a href="{% url 'update_portfolio' portfolio.id %}">Update</a></div>
+    <div>{{portfolio.name}} <a href="{% url 'portfolio:update_portfolio' portfolio.id %}">Update</a></div>
     {% endfor %}
     <h1>New Portfolio</h1>
-    <form action="{% url 'create_portfolio' %}" method="POST">
+    <form action="{% url 'portfolio:create_portfolio' %}" method="POST">
     {% csrf_token %}
         <input type="text" name="name" placeholder="Enter portfolio name">
         <input type="submit" placeholder="Create">

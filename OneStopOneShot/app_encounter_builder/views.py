@@ -7,15 +7,15 @@ from app_OSOS.models import Portfolio
 
 ########################################################################################################
 
-def index(request, portfolio_id):
+def index(request):
 
     return render(request, "app_encounter_builder/index.html")
 
-def build_encounter(request, portfolio_id):
+def build_encounter(request):
 
     return render(request, "app_encounter_builder/encounter-builder.html")
 
-def display_statblock(request, portfolio_id):
+def display_statblock(request):
      if request.method == "GET":
         selected_monster = request.GET.get("selectedmonster")
         monster_to_return = Monster.objects.filter(name=selected_monster)
@@ -24,7 +24,7 @@ def display_statblock(request, portfolio_id):
         print(data)
         return JsonResponse({"data": data}, safe=False)
 
-def save_encounter(request, portfolio_id):
+def save_encounter(request):
     if request.method == "GET":
         encounter = Encounter()
         encounter.monsters = request.GET.get("mon")
@@ -45,7 +45,7 @@ def save_encounter(request, portfolio_id):
         encounter.save()
     return redirect('index')
 
-def load_encounter(request, portfolio_id):
+def load_encounter(request):
     user = request.user
     encounters = Encounter.objects.filter(user=user)
     data = list(encounters.values("monsters", "party", "exp", "adjusted_exp", "difficulty", "id"))

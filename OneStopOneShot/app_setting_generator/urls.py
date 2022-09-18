@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name = "setting"
+
 urlpatterns = [
     path("", views.index, name="index-setting"),
     path("createvillain/", views.create_villain, name="create_villain"),

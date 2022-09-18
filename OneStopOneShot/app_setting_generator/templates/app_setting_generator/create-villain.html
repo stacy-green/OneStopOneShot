@@ -24,7 +24,7 @@
 </head>
 <body>
     <div id="app">
-        <form method="POST" action="{% url 'save_villain'%}">
+        <form method="POST" action="{% url 'setting:save_villain' %}">
             {% csrf_token %}
             <div id="race">
                 <select name="race" v-model="race" v-on:change="determineClan(), determineNames()">

@@ -21,9 +21,9 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app_OSOS.urls')),
-    path('<int:portfolio_id>/encounter/', include('app_encounter_builder.urls')),
-    path('<int:portfolio_id>/map/', include('app_map_generator.urls')),
-    path('<int:portfolio_id>/setting/', include('app_setting_generator.urls')),
+    path('setting/', include('app_setting_generator.urls')),
+    path('map/', include('app_map_generator.urls')),
+    path('encounter/', include('app_encounter_builder.urls')),
 ]
 
 if settings.DEBUG:
