@@ -21,8 +21,14 @@ def get_maps(request, portfolio_id):
     data = list(maps.values())
     return JsonResponse({"data": data}, safe=False)
 
-def save_map(request):
-
+def save_map(request, portfolio_id):
+    portfolio = Portfolio.objects.get(id=portfolio_id)
+    map_name = request.GET.get("name")
+    new_map = Map.objects.get(img=map_name)
+    portfolio.maps.add(new_map)
+    # new_map.portfolios.add(portfolio)
+    # new_map.portfolio.set(portfolio_id)
+    new_map.save()
     return HttpResponse("OK")
 
 def update_map(request):

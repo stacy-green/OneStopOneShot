@@ -45,6 +45,10 @@ const app = Vue.createApp({
             console.log(this.selectedMap)
         },
 
+        saveMap: function(map) {
+            fetch(`save/?name=${map}`)
+        },
+
     },
 
     watch: {
