@@ -16,8 +16,8 @@ const app = Vue.createApp({
 
     methods: {
 
-        deleteEncounter: function(id) {
-            fetch(`delete/${id}`)
+        deleteEncounter: function(encounter_id) {
+            fetch(`delete/${encounter_id}`)
             // .then(response => {
             //     console.log(response)
             //     response.json().then(data => {

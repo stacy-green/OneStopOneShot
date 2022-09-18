@@ -106,8 +106,7 @@
                 </div>
                 {% comment %} Save current encounter. {% endcomment %}
                 <div id="save-encounter">
-                    <input type="text" v-model="portfolioName" placeholder="Enter One-shot Name">
-                    <button v-on:click="saveEncounter()">Save Encounter</button>
+                    <button v-on:click="saveEncounter({{portfolio.id}})">Save Encounter</button>
                 </div>
             </div>
         </div>

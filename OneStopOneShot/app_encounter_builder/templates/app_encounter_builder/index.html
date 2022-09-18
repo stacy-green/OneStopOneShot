@@ -13,6 +13,7 @@
 <body>
     <h1>Index page loaded</h1>
     <div id="app">
+        <div><a href="{% url 'encounter:build_encounter' portfolio.id %}">Add Encounter</a></div>
         <div>Party Lvls: [[partyString]]</div>
         <div v-for="(encounter, index) in encountersList">
             <div>

@@ -7,13 +7,15 @@ from app_OSOS.models import Portfolio
 
 ########################################################################################################
 
-def index(request):
+def index(request, portfolio_id):
+    portfolio = Portfolio.objects.get(id=portfolio_id)
+    context = {"portfolio": portfolio}
+    return render(request, "app_encounter_builder/index.html", context)
 
-    return render(request, "app_encounter_builder/index.html")
-
-def build_encounter(request):
-
-    return render(request, "app_encounter_builder/encounter-builder.html")
+def build_encounter(request, portfolio_id):
+    portfolio = Portfolio.objects.get(id=portfolio_id)
+    context = {"portfolio": portfolio}
+    return render(request, "app_encounter_builder/encounter-builder.html", context)
 
 def display_statblock(request):
      if request.method == "GET":
@@ -24,7 +26,7 @@ def display_statblock(request):
         print(data)
         return JsonResponse({"data": data}, safe=False)
 
-def save_encounter(request):
+def save_encounter(request, portfolio_id):
     if request.method == "GET":
         encounter = Encounter()
         encounter.monsters = request.GET.get("mon")
@@ -34,26 +36,21 @@ def save_encounter(request):
         encounter.difficulty = request.GET.get("dif")
         encounter.user = request.user
         encounter.save()
-        try:
-            portfolio = Portfolio.objects.get(name=(request.GET.get("name")))
-            encounter.portfolio = portfolio
-        except Portfolio.DoesNotExist:
-            new_portfolio = Portfolio()
-            new_portfolio.name = request.GET.get("name")
-            encounter.portfolio = new_portfolio
-            new_portfolio.save()
+        portfolio = Portfolio.objects.get(id=portfolio_id)
+        encounter.portfolio = portfolio
+        portfolio.save()
         encounter.save()
-    return redirect('index')
+    return redirect('encounter:index', portfolio_id)
 
-def load_encounter(request):
+def load_encounter(request, portfolio_id):
     user = request.user
-    encounters = Encounter.objects.filter(user=user)
+    encounters = Encounter.objects.filter(portfolio=portfolio_id)
     data = list(encounters.values("monsters", "party", "exp", "adjusted_exp", "difficulty", "id"))
     # data = list(encounters.values())
     # print(data)
     return JsonResponse({"data": data}, safe=False)
 
-def delete_encounter(request, encounter_id):
+def delete_encounter(request, portfolio_id, encounter_id):
     encounter = Encounter.objects.get(id=encounter_id)
     if encounter.user == request.user:
         encounter.delete()

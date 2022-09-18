@@ -13,7 +13,7 @@
     <a href="{% url 'map:index' portfolio.id %}">Add Map</a>
     {% for map in battlemaps %} <img src="../../media/{{map.img}} " alt="{{map.size}} Map">{% endfor %}
 
-    {% comment %} <a href="{% url '' %}">Add Encounter</a>  {% endcomment %}
+    <a href="{% url 'encounter:index' portfolio.id %}">Add Encounter</a> 
     <a href="{% url 'portfolio:delete_portfolio' portfolio.id %}">Delete Portfolio</a>
 </body>
 </html>
