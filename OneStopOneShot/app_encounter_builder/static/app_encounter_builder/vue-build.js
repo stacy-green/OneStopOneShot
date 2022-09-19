@@ -212,6 +212,7 @@ const app = Vue.createApp({
     mounted: function() {
         this.enumerateCRs()
         this.elaborateMonsters()
+        this.updatePlayer()
     },
 
 }).mount("#app")
