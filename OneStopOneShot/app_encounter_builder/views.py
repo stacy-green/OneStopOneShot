@@ -7,6 +7,10 @@ from app_OSOS.models import Portfolio
 
 ########################################################################################################
 
+def test123(request):
+
+    return render(request, "app_encounter_builder/adult_red_dragon.html")
+
 def index(request, portfolio_id):
     portfolio = Portfolio.objects.get(id=portfolio_id)
     context = {"portfolio": portfolio}
