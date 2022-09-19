@@ -86,6 +86,7 @@
         .right-side {
             display: flex;
             flex-direction: column;
+            align-items: center;
             height: 100vh;
             width: 45%;
         }
@@ -125,7 +126,7 @@
             flex-direction: column;
             align-items: center;
             height: 100%;
-            padding: 2rem 2rem;
+            padding: 1rem 1rem;
         }
     </style>
 </head>
@@ -271,20 +272,133 @@
                                 <svg height="5" width="100%" class="tapered-rule">
                                     <polyline points="0,0 400,2.5 0,5"></polyline>
                                 </svg>
-                                <div id="properties-list"><div class="property-line first"><div><h4>Saving Throws</h4> <p>Dex +6, Con +13, Wis +7, Cha +11</p></div></div><!-- property line --><div class="property-line"><div><h4>Skills</h4> <p>Perception +13, Stealth +6</p></div></div><!-- property line --><div class="property-line"><div><h4>Damage Immunities</h4> <p>fire</p></div></div><!-- property line --><div class="property-line"><div><h4>Senses</h4> <p>blindsight 60 ft., darkvision 120 ft., passive Perception 23</p></div></div><!-- property line --><div class="property-line"><div><h4>Languages</h4> <p>Common, Draconic</p></div></div><!-- property line --></div>
+                                <div id="properties-list">
+                                    <div class="property-line first">
+                                        <div>
+                                            <h4>Saving Throws</h4> 
+                                            <p>Dex +6, Con +13, Wis +7, Cha +11
+                                            </p>
+                                        </div>
+                                    </div><!-- property line -->
+                                    <div class="property-line">
+                                        <div>
+                                            <h4>Skills</h4> 
+                                            <p>Perception +13, Stealth +6
+                                            </p>
+                                        </div>
+                                    </div><!-- property line -->
+                                    <div class="property-line">
+                                        <div>
+                                            <h4>Damage Immunities</h4> 
+                                            <p>fire
+                                            </p>
+                                        </div>
+                                    </div><!-- property line -->
+                                    <div class="property-line">
+                                        <div>
+                                            <h4>Senses</h4> 
+                                            <p>blindsight 60 ft., darkvision 120 ft., passive Perception 23
+                                            </p>
+                                        </div>
+                                    </div><!-- property line -->
+                                    <div class="property-line">
+                                        <div><h4>Languages</h4> 
+                                            <p>Common, Draconic
+                                            </p>
+                                        </div>
+                                    </div><!-- property line -->
+                                </div>
                                 <div id="challenge-rating-line" class="property-line last">
                                     <h4>Challenge</h4>
-                                    <p id="challenge-rating">17 (18,000 XP)</p>
+                                    <p id="challenge-rating">17 (18,000 XP)
+                                    </p>
                                 </div> <!-- property line -->
                             </div> <!-- top stats -->
                             <svg height="5" width="100%" class="tapered-rule">
                                 <polyline points="0,0 400,2.5 0,5"></polyline>
                             </svg>
                             <div class="actions">
-                                <div id="traits-list-left"><div class="property-block"><div><h4>Legendary Resistance (3/Day).</h4><p> If the dragon fails a saving throw, it can choose to succeed instead.</p></div></div> <!-- property block --><h3>Actions</h3><div class="property-block"><div><h4>Multiattack.</h4><p> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p></div></div> <!-- property block --><div class="property-block"><div><h4>Bite.</h4><p> <i>Melee Weapon Attack:</i> +14 to hit, reach 10 ft., one target. <i>Hit:</i> 19 (2d10 + 8) piercing damage plus 7 (2d6) fire damage.</p></div></div> <!-- property block --><div class="property-block"><div><h4>Claw.</h4><p> <i>Melee Weapon Attack:</i> +14 to hit, reach 5 ft., one target. <i>Hit:</i> 15 (2d6 + 8) slashing damage.</p></div></div> <!-- property block --></div>
+                                <div id="traits-list-left">
+                                    <div class="property-block">
+                                        <div><h4>Legendary Resistance (3/Day).</h4>
+                                            <p> If the dragon fails a saving throw, it can choose to succeed instead.
+                                            </p>
+                                        </div>
+                                    </div> <!-- property block -->
+                                    <h3>Actions</h3>
+                                <hr class="separator">
+                                <div class="property-block">
+                                    <div>
+                                        <h4>Multiattack.</h4>
+                                        <p> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.
+                                        </p>
+                                    </div>
+                                </div> <!-- property block -->
+                                <div class="property-block">
+                                    <div>
+                                        <h4>Bite.</h4>
+                                        <p> 
+                                            <i>Melee Weapon Attack:</i> +14 to hit, reach 10 ft., one target. <i>Hit:</i> 19 (2d10 + 8) piercing damage plus 7 (2d6) fire damage.
+                                        </p>
+                                    </div>
+                                </div> <!-- property block -->
+                                <div class="property-block">
+                                    <div>
+                                        <h4>Claw.</h4>
+                                        <p> <i>Melee Weapon Attack:</i> +14 to hit, reach 5 ft., one target. <i>Hit:</i> 15 (2d6 + 8) slashing damage.
+                                        </p>
+                                    </div>
+                                </div> <!-- property block --></div>
                             </div> <!-- actions -->
                             <div class="actions">
-                                <div id="traits-list-right"><div class="property-block"><div><h4>Tail.</h4><p> <i>Melee Weapon Attack:</i> +14 to hit, reach 15 ft., one target. <i>Hit:</i> 17 (2d8 + 8) bludgeoning damage.</p></div></div> <!-- property block --><div class="property-block"><div><h4>Frightful Presence.</h4><p> Each creature of the dragon's choice that is within 120 ft. of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p></div></div> <!-- property block --><div class="property-block"><div><h4>Fire Breath (Recharge 5-6).</h4><p> The dragon exhales fire in a 60-foot cone. Each creature in that area must make a DC 21 Dexterity saving throw, taking 63 (18d6) fire damage on a failed save, or half as much damage on a successful one.</p></div></div> <!-- property block --><h3>Legendary Actions</h3><div class="property-block">The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</div><br><div class="property-block reverse-indent legendary"><div><h4>Detect.</h4><p> The dragon makes a Wisdom (Perception) check.</p></div></div> <!-- property block --><div class="property-block reverse-indent legendary"><div><h4>Tail Attack.</h4><p> The dragon makes a tail attack.</p></div></div> <!-- property block --><div class="property-block reverse-indent legendary"><div><h4>Wing Attack (Costs 2 Actions).</h4><p> The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p></div></div> <!-- property block --></div>
+                                <div id="traits-list-right">
+                                    <div class="property-block">
+                                        <div>
+                                            <h4>Tail.</h4>
+                                            <p> <i>Melee Weapon Attack:</i> +14 to hit, reach 15 ft., one target. <i>Hit:</i> 17 (2d8 + 8) bludgeoning damage.
+                                            </p>
+                                        </div>
+                                    </div> <!-- property block -->
+                                    <div class="property-block">
+                                        <div>
+                                            <h4>Frightful Presence.</h4>
+                                            <p> Each creature of the dragon's choice that is within 120 ft. of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.
+                                            </p>
+                                        </div>
+                                    </div> <!-- property block -->
+                                    <div class="property-block">
+                                        <div>
+                                            <h4>Fire Breath (Recharge 5-6).</h4>
+                                            <p> The dragon exhales fire in a 60-foot cone. Each creature in that area must make a DC 21 Dexterity saving throw, taking 63 (18d6) fire damage on a failed save, or half as much damage on a successful one.
+                                            </p>
+                                        </div>
+                                    </div> <!-- property block -->
+                                <h3>Legendary Actions</h3>
+                                <hr class="separator">
+                                <div class="property-block">The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.
+                                </div>
+                                <br>
+                                <div class="property-block reverse-indent legendary">
+                                    <div>
+                                        <h4>Detect.</h4>
+                                        <p> The dragon makes a Wisdom (Perception) check.
+                                        </p>
+                                    </div>
+                                </div> <!-- property block -->
+                                <div class="property-block reverse-indent legendary">
+                                    <div>
+                                        <h4>Tail Attack.</h4>
+                                        <p> The dragon makes a tail attack.
+                                        </p>
+                                    </div>
+                                </div> <!-- property block -->
+                                <div class="property-block reverse-indent legendary">
+                                    <div>
+                                        <h4>Wing Attack (Costs 2 Actions).</h4>
+                                        <p> The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.
+                                        </p>
+                                    </div>
+                                </div> <!-- property block --></div>
                             </div> <!-- actions -->
                         </div> <!-- section right -->
                         <hr class="orange-border bottom">
