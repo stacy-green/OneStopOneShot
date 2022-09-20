@@ -59,11 +59,19 @@
             text-orientation: upright; 
             writing-mode: vertical-lr;
         }
+        .profile-link {
+            color: black;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            margin: 2px 2px;
+        }
     </style>
 
 </head>
 <body>
     <div id="app">
+        <a class="profile-link" href="{% url 'portfolio:update_portfolio' portfolio.id %}">Back to Profile</a>
         <form method="POST" action="{% url 'setting:save_villain' portfolio.id %}">
             {% csrf_token %}
             <div id="race-gender-dropdown">

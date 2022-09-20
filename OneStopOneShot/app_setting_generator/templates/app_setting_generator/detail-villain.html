@@ -52,6 +52,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 50%;
         }
         .profile-link {
             text-align: center;
@@ -63,7 +64,7 @@
 </head>
 <body>
     <div>
-        <a class="profile-link" href="{% url 'portfolio:user_profile' %}">Back to Profile</a>
+        <a class="profile-link" href="{% url 'portfolio:update_portfolio' villain.portfolio_id %}">Back to Portfolio</a>
     </div>
     <div id="required-div">
         <div class="required-field"> Name: {{villain.first_name}} {% if villain.clan_name %}{{villain.clan_name}}{% endif %} </div>
