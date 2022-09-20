@@ -6,33 +6,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{portfolio.name}}</title>
     <style>
+        html {
+            background-image: linear-gradient(90deg, rgb(1, 198, 86),rgb(47, 152, 24));
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 100vh;
+        }
+        a {
+            text-decoration: none;
+        }
         .delete-div {
             padding: 1rem 0;
+            margin: 2rem 2rem;
+            text-align: center;
+        }
+        #portfolio-wrapper {
+            display: flex;
+
+        }
+        #links {
+            text-align: center;
+        }
+        #setting-encounter-div {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        #map-div {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #map-links {
+            display: flex;
+            border-color: black;
+            margin: 1rem 1rem;
+
+        }
+        .map-link {
+            margin: 0 1rem;
+        }
+        #map-imgs {
+            display: flex;
+        }
+        .battle-map {
+            height: 200px;
+            width: 200px;
+            margin: 0 1rem;
+        }
+        #map-header {
+            text-align: center;
+        }
+        #villain-link-div {
+            margin: 1rem 0;
+        }
+        #add-encounter-div {
+            margin: 1rem 0;
+        }
+        .red-link {
+            color: darkred;
+            padding: 4px 4px;
+            border-style: solid;
+            border-color: darkred;
+            border-radius: 0.5rem;
+        }
+        .black-link {
+            color: rgb(3, 2, 97);
+            border-style: solid;
+            border-radius: 0.5rem;
+            border-color: rgb(3, 2, 97);
+            padding: 4px 4px;
         }
     </style>
 </head>
 <body>
-    <div>
+    <div id="links">
         <a href="{% url 'portfolio:user_profile' %}">Back to Profile</a>
     </div>
-    <div>
-        <a href="{% url 'setting:create_villain' portfolio.id %}">Add Villain</a>
-        {% for villain in villains %}<div><a href="{% url 'setting:detail_villain' villain.id %}">{{villain.first_name}}</a></div> {% endfor %}
-        
+    <div id="portfolio-wrapper">
+        <div id="setting-encounter-div">
+            <div>
+                <h1>Antagonists</h1>
+                <div>
+                    <ul>
+                    {% for villain in villains %}
+                    <li class="villains-div"><a href="{% url 'setting:detail_villain' villain.id %}">{{villain.first_name}}</a>
+                    </li> 
+                    {% endfor %}
+                    
+                </ul>
+                </div>
+                <div id="villain-link-div">
+                    <a class="black-link" href="{% url 'setting:create_villain' portfolio.id %}">Add Villain</a>
+                </div>
+            </div>
+            <br>
+            <div>
+                <div>
+                    <h1>Encounters</h1>
+                </div>
+                {% for encounter in encounters %}<div>Difficulty: {{encounter.difficulty}}</div>{% endfor %}
+                <div id="add-encounter-div">
+                    <a class="black-link" href="{% url 'encounter:index' portfolio.id %}">Add Encounter</a>
+                </div>
+            </div>
+        </div>
+        <div id="map-div">
+            <h1 id="map-header">Maps</h1>
+            <div id="map-links">
+                <a class="map-link black-link" href="{% url 'map:index' portfolio.id %}">Add Map</a>
+                <a class="map-link red-link" href="{% url 'map:remove_map' portfolio.id %}">Remove Map</a>
+            </div>
+            <div id="map-imgs">
+                {% for map in battlemaps %} <img class="battle-map" src="../../media/{{map.img}} " alt="{{map.size}} Map">
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    <div>
-        <a href="{% url 'map:index' portfolio.id %}">Add Map</a>
-        <a href="{% url 'map:remove_map' portfolio.id %}">Remove Map</a>
-        {% for map in battlemaps %} <img src="../../media/{{map.img}} " alt="{{map.size}} Map">
-        {% endfor %}
+    <div class="delete-div">
+        <a class="red-link" href="{% url 'portfolio:delete_portfolio' portfolio.id %}">Delete Portfolio</a>
     </div>
 
-    <div>
-        <a href="{% url 'encounter:index' portfolio.id %}">Add Encounter</a>
-        <h2>Encounters</h2>
-        {% for encounter in encounters %}<div>Difficulty: {{encounter.difficulty}}</div>{% endfor %}
-    </div>
-
-    <div class="delete-div"><a href="{% url 'portfolio:delete_portfolio' portfolio.id %}">Delete Portfolio</a></div>
 </body>
 </html>
