@@ -4,18 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{user}}'s Profile</title>
+    <style>
+        html {
+            background-image: linear-gradient(145deg, rgba(232, 87, 237, 0.15) 0%,rgba(109, 137, 69, 0.15) 100%),linear-gradient(75deg, rgb(33, 138, 184),rgb(0, 241, 181));
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 100vh;
+            min-height: 100vh;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        #new-portfolio-div {
+            text-align: center;
+        }
+        #portfolios-div {
+            text-align: center;
+            margin: 1rem 1rem;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:link,:visited {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <h1>OK</h1>
-    {% for portfolio in data %}
-    <div>{{portfolio.name}} <a href="{% url 'portfolio:update_portfolio' portfolio.id %}">Update</a></div>
-    {% endfor %}
-    <h1>New Portfolio</h1>
-    <form action="{% url 'portfolio:create_portfolio' %}" method="POST">
-    {% csrf_token %}
-        <input type="text" name="name" placeholder="Enter portfolio name">
-        <input type="submit" placeholder="Create">
-    </form>
+    
+    <div id="new-portfolio-div">
+        <h1>New Portfolio</h1>
+        <form action="{% url 'portfolio:create_portfolio' %}" method="POST">
+            {% csrf_token %}
+            <div><input type="text" name="name" placeholder="Enter portfolio name"></div>
+            <div><input type="submit" placeholder="Create"></div>
+        </form>
+    </div>
+    
+    <div id="portfolios-div">
+        {% for portfolio in data %}
+        <div><a href="{% url 'portfolio:update_portfolio' portfolio.id %}">{{portfolio.name}}</a></div>
+        {% endfor %}
+    </div>
+
 </body>
 </html>

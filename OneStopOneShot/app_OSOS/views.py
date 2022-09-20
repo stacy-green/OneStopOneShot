@@ -18,7 +18,8 @@ def user_profile(request):
     portfolios = Portfolio.objects.filter(user=request.user).values()
     data = list(portfolios)
     context = {
-        "data": data
+        "data": data,
+        "user": request.user
     }
     return render(request, "app_OSOS/user-profile.html", context)
 
