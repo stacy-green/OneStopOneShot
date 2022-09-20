@@ -12,6 +12,9 @@
     </style>
 </head>
 <body>
+    <div>
+        <a href="{% url 'portfolio:user_profile' %}">Back to Profile</a>
+    </div>
     <a href="{% url 'setting:create_villain' portfolio.id %}">Add Villain</a>
     {% for villain in villains %}<div><a href="{% url 'setting:detail_villain' villain.id %}">{{villain.first_name}}</a></div> {% endfor %}
     

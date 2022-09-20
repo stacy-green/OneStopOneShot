@@ -10,7 +10,9 @@
     <script src="https://unpkg.com/vue@3"></script>
     <script defer src="{% static 'app_map_generator/app.js' %}"></script>
 <body>
-    <h1>It works</h1>
+    <div>
+        <a href="{% url 'portfolio:update_portfolio' portfolio.id %}">Back to Portfolio: {{portfolio.name}}</a>
+    </div>
     <div id="app">
         <button id="save-map-btn" v-on:click="saveMap(selectedMap), portfolioRedirect({{portfolio.id}})">Save Map</button>
         <div id="size-select-div">

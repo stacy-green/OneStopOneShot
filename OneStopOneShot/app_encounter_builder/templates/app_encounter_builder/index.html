@@ -11,7 +11,9 @@
     <script defer src="{% static 'app_encounter_builder/vue-index.js' %}"></script>
 </head>
 <body>
-    <h1>Index page loaded</h1>
+    <div>
+        <a href="{% url 'portfolio:update_portfolio' portfolio.id %}">Back to Portfolio: {{portfolio.name}}</a>
+    </div>
     <div id="app">
         <div><a href="{% url 'encounter:build_encounter' portfolio.id %}">Add Encounter</a></div>
         <div>Party Lvls: [[partyString]]</div>

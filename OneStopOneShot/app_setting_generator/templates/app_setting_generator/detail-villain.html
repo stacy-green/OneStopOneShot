@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <a href="{% url 'portfolio:user_profile' %}">Back to Profile</a>
+    </div>
     <div> Name: {{villain.first_name}} {% if villain.clan_name %}{{villain.clan_name}}{% endif %} </div>
     <div> Race: {{villain.race}}</div>
     <div> Gender: {{villain.gender}}</div>
