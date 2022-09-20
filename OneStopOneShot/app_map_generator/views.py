@@ -29,6 +29,22 @@ def save_map(request, portfolio_id):
     new_map.save()
     return HttpResponse("Map saved")
 
-def update_map(request):
+def remove_map(request, portfolio_id):
+    battlemaps = list(Map.objects.filter(portfolio=portfolio_id))
+    print(battlemaps)
+    portfolio = Portfolio.objects.get(id=portfolio_id)
+    print(portfolio)
+    context = {
+        "portfolio": portfolio,
+        "battlemaps": battlemaps
+        }
+    return render(request, "app_map_generator/remove-map.html", context)
 
-    return HttpResponse("OK")
+def delete_map(request, portfolio_id):
+    if request.method == "GET":
+        map_id = request.GET.get("map")
+        print(map_id)
+        battlemap = Map.objects.get(id=map_id)
+        portfolio = Portfolio.objects.get(id=portfolio_id)
+        battlemap.portfolio.remove(portfolio)
+    return redirect("portfolio:update_portfolio", portfolio_id)

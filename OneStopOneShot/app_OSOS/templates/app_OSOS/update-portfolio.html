@@ -15,15 +15,23 @@
     <div>
         <a href="{% url 'portfolio:user_profile' %}">Back to Profile</a>
     </div>
-    <a href="{% url 'setting:create_villain' portfolio.id %}">Add Villain</a>
-    {% for villain in villains %}<div><a href="{% url 'setting:detail_villain' villain.id %}">{{villain.first_name}}</a></div> {% endfor %}
-    
-    <a href="{% url 'map:index' portfolio.id %}">Add Map</a>
-    {% for map in battlemaps %} <img src="../../media/{{map.img}} " alt="{{map.size}} Map">{% endfor %}
+    <div>
+        <a href="{% url 'setting:create_villain' portfolio.id %}">Add Villain</a>
+        {% for villain in villains %}<div><a href="{% url 'setting:detail_villain' villain.id %}">{{villain.first_name}}</a></div> {% endfor %}
+        
+    </div>
+    <div>
+        <a href="{% url 'map:index' portfolio.id %}">Add Map</a>
+        <a href="{% url 'map:remove_map' portfolio.id %}">Remove Map</a>
+        {% for map in battlemaps %} <img src="../../media/{{map.img}} " alt="{{map.size}} Map">
+        {% endfor %}
+    </div>
 
-    <a href="{% url 'encounter:index' portfolio.id %}">Add Encounter</a> 
-    <h2>Encounters</h2>
-    {% for encounter in encounters %}<div>Difficulty: {{encounter.difficulty}}</div>{% endfor %}
+    <div>
+        <a href="{% url 'encounter:index' portfolio.id %}">Add Encounter</a>
+        <h2>Encounters</h2>
+        {% for encounter in encounters %}<div>Difficulty: {{encounter.difficulty}}</div>{% endfor %}
+    </div>
 
     <div class="delete-div"><a href="{% url 'portfolio:delete_portfolio' portfolio.id %}">Delete Portfolio</a></div>
 </body>
