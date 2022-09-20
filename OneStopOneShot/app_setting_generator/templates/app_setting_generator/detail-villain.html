@@ -4,21 +4,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{villain.first_name}}</title>
+    <style>
+        html {
+            height: 100vh;
+            background-image: linear-gradient(90deg, rgb(84, 21, 156),rgb(132, 51, 77));
+            
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+        .delete-link {
+            color: darkred;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: bold;
+            border-style: solid;
+            border-radius: 0.5rem;
+            margin: 1rem 1rem;
+        }
+        #delete-div {
+            margin: 1rem 1rem;
+        }
+        .required-field {
+            color: black;
+            margin: 1rem 0;
+            padding: 1rem 1rem;
+        }
+        .not-required-field {
+            color: black;
+            width: 30%;
+            border-style: solid;
+            border-radius: 0.5rem;
+            border-color: black;
+            padding: 1rem 1rem;
+            text-align: center;
+            margin: 2px 2px;
+        }
+        #required-div {
+            display: flex;
+            justify-content: flex-start;
+        }
+        #not-required-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile-link {
+            text-align: center;
+            text-decoration: underline;
+            font-size: 1.5rem;
+            color: black;
+        }
+    </style>
 </head>
 <body>
     <div>
-        <a href="{% url 'portfolio:user_profile' %}">Back to Profile</a>
+        <a class="profile-link" href="{% url 'portfolio:user_profile' %}">Back to Profile</a>
     </div>
-    <div> Name: {{villain.first_name}} {% if villain.clan_name %}{{villain.clan_name}}{% endif %} </div>
-    <div> Race: {{villain.race}}</div>
-    <div> Gender: {{villain.gender}}</div>
-    <div>{% if villain.villain_type %} Type: {{villain.villain_type}} {% else %}No type{% endif %}</div>
-    <div>{% if villain.organization %} Organization: {{villain.organization}}{% else %}No organization{% endif %}</div>
-    <div>{% if villain.motivation %} Motivation: {{villain.motivation}}{% else %}No motivation{% endif %}</div>
-    <div>{% if villain.secret %} Secret: {{villain.secret}}{% else %}No secret{% endif %}</div>
-    <div>{% if villain.fear %} Fear: {{villain.fear}}{% else %}{% endif %}No fear</div>
-    <div>{% if villain.life_event %} Life event: {{villain.life_event}}{% else %}No life event{% endif %}</div>
-    <div><a href="{% url 'setting:delete_villain' villain.id %}">Delete</a></div>
+    <div id="required-div">
+        <div class="required-field"> Name: {{villain.first_name}} {% if villain.clan_name %}{{villain.clan_name}}{% endif %} </div>
+        <div class="required-field"> Race: {{villain.race}}</div>
+        <div class="required-field"> Gender: {{villain.gender}}</div>
+    </div>
+    <div id="not-required-div">
+        <div class="not-required-field">{% if villain.villain_type %} <h4>Type:</h4> {{villain.villain_type}} {% else %}No type{% endif %}</div>
+        <div class="not-required-field">{% if villain.organization %} <h4>Organization:</h4> {{villain.organization}}{% else %}No organization{% endif %}</div>
+        <div class="not-required-field">{% if villain.motivation %} <h4>Motivation:</h4> {{villain.motivation}}{% else %}No motivation{% endif %}</div>
+        <div class="not-required-field">{% if villain.secret %} <h4>Secret:</h4> {{villain.secret}}{% else %}No secret{% endif %}</div>
+        <div class="not-required-field">{% if villain.fear %} <h4>Fear:</h4> {{villain.fear}}{% else %}No fear{% endif %}</div>
+        <div class="not-required-field">{% if villain.life_event %} <h4>Life event:</h4> {{villain.life_event}}{% else %}No life event{% endif %}</div>
+        
+    </div>
+    <div id="delete-div"><a class="delete-link" href="{% url 'setting:delete_villain' villain.id %}">Delete</a></div>
 </body>
 </html>
