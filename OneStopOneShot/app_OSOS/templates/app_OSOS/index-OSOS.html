@@ -9,6 +9,37 @@
     <title>Home</title>
     <script src="https://unpkg.com/vue@3"></script> 
     <script defer src="{% static 'app_OSOS/app-OSOS.js' %}"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: black;
+            color: white;
+        }
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .header {
+            font-size: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .welcome {
+            font-size: 4rem;
+        }
+        .about {
+            width: 60%;
+        }
+        .instructions {
+            font-size: 2rem;
+            margin: 2rem 2rem;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
@@ -17,13 +48,49 @@
         {% endif %}
         {% if request.user.is_anonymous %}
         <a href="{% url 'portfolio:login' %}">Login</a>
-        {% else %} <a href="{% url 'portfolio:logout' %}">Logout</a>
+        {% else %} 
+        <a href="{% url 'portfolio:logout' %}">Logout</a>
+        <a href="{% url 'portfolio:user_profile' %}">To my Profile</a>
         {% endif %}
     </div>
     <div id="app">
-    
-        <div>[[message]]</div>
+        <div class="welcome">
+            Welcome to One-Stop One-Shot!
+        </div>  
+        <p class="about">
+            OSOS is a project that incorporates Python, Django, Javascript, Vue, Html, and Css. Its purpose is to demonstrate my proficiency with these languages/frameworks by incorporating multiple apps into a single project that allows someone to quickly build a One-shot session.
+        </p>
+        <p class="about">
+            One-shots are tabletop role playing game scenarios that are concluded in a single session. When last minute emergencies or scheduling conflicts prevent a group of tabletop gamers from playing their usual campaign, OSOS will allow them to quickly build a replacement scenario to play instead.
+        </p>
+        <hr class="section-divider">
+        <div class="walkthrough">
+            <p class="instructions">Using OSOS is simple. Just follow these steps.</p>
+            <div>
+                <div class="instructions">1. Signup or login and go to your profile</div>
+            </div>
+            <div>
+                <div class="instructions">2. Create a new portfolio</div>
+                <div> <img src="media/images/screenshots/Portfolio.png" alt=""> </div>
+            </div>
 
+            <div>
+                <div class="instructions">3. Create a villain/antagonist using the Villain Generator</div>
+                <div> <img src="media/images/screenshots/Villain.png" alt=""> </div>
+            </div>
+            <div>
+                <div class="instructions">4. Create combat encounters using the Encounter Builder</div>
+                <div> <img src="media/images/screenshots/Encounter.png" alt=""> </div>
+            </div>
+            <div>
+                <div class="instructions">5. Select a battlemap or battlemaps with the Map Generator</div>
+                <div> <img src="media/images/screenshots/Fullmap.png" alt=""> </div>
+            </div>
+            <div>
+                <div class="instructions">6. Enjoy your completed portfolio!</div>
+                <div><img src="media/images/screenshots/Completedportfolio.png" alt=""></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
