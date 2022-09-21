@@ -9,6 +9,22 @@
     <title>Map</title>
     <script src="https://unpkg.com/vue@3"></script>
     <script defer src="{% static 'app_map_generator/app.js' %}"></script>
+    <style>
+        body {
+            display: flex;
+            background-color: aqua;
+            flex-direction: column;
+            align-items: center;
+        }
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        select, option {
+            text-align: center;
+        }
+    </style>
 <body>
     <div>
         <a href="{% url 'portfolio:update_portfolio' portfolio.id %}">Back to Portfolio: {{portfolio.name}}</a>
