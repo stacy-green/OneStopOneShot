@@ -36,6 +36,7 @@
 <body>
     
     <div id="new-portfolio-div">
+        <a href="{% url 'portfolio:index' %}">Back to Home</a>
         <h1>New Portfolio</h1>
         <form action="{% url 'portfolio:create_portfolio' %}" method="POST">
             {% csrf_token %}

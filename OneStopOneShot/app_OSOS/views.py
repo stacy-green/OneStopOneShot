@@ -111,7 +111,7 @@ def login(request):
                 next = request.GET.get('next')
                 if next:
                     redirect('next')
-                return redirect('portfolio:index')
+                return redirect('portfolio:user_profile')
         form.add_error(error="Invalid username and/or password", field="username")
         context = {
             "form": form

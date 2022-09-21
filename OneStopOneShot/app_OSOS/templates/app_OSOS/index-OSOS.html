@@ -11,14 +11,15 @@
     <script defer src="{% static 'app_OSOS/app-OSOS.js' %}"></script>
 </head>
 <body>
-    <h1>ok</h1>
-    {% if request.user.is_anonymous %}
-    <a href="{% url 'portfolio:signup' %}">Signup</a>
-    {% endif %}
-    {% if request.user.is_anonymous %}
-    <a href="{% url 'portfolio:login' %}">Login</a>
-    {% else %} <a href="{% url 'portfolio:logout' %}">Logout</a>
-    {% endif %}
+    <div class="header">
+        {% if request.user.is_anonymous %}
+        <a href="{% url 'portfolio:signup' %}">Signup</a>
+        {% endif %}
+        {% if request.user.is_anonymous %}
+        <a href="{% url 'portfolio:login' %}">Login</a>
+        {% else %} <a href="{% url 'portfolio:logout' %}">Logout</a>
+        {% endif %}
+    </div>
     <div id="app">
     
         <div>[[message]]</div>
