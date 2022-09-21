@@ -27,7 +27,7 @@ def display_statblock(request):
         monster_to_return = Monster.objects.filter(name=selected_monster)
         # print(monster_to_return)
         data = list(monster_to_return.values())
-        print(data)
+        # print(data)
         return JsonResponse({"data": data}, safe=False)
 
 def save_encounter(request, portfolio_id):

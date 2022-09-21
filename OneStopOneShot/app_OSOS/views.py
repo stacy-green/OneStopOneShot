@@ -5,8 +5,8 @@ from django.contrib import auth
 from app_encounter_builder.models import Encounter
 from app_map_generator.models import Map
 from app_setting_generator.models import Villain
-from .models import Portfolio
-from .forms import NewPortfolioForm
+from .models import Portfolio, User
+from .forms import NewPortfolioForm, AuthForm
 
 ######################################################################################################
 
@@ -88,8 +88,46 @@ def logout(request):
     pass
 
 def signup(request):
-    # signup
-    pass
+    if request.method == "POST":
+        form = AuthForm(request.POST)
+        if form.is_valid():
+            user = User.objects.create_user(username=form.cleaned_data['username'], password=form.cleaned_data['password']
+            )
+            auth.login(request, user)
+            return render(request, 'app_OSOS/signup.html')
+        else:
+            context = {
+                'form': form
+            }
+            return render(request, 'app_OSOS/signup.html', context)
+    context = {
+        'form': AuthForm()
+    }
+    return render(request, 'app_OSOS/signup.html', context)
 
+# def login(request):
+#     if request.method == "POST":
+#         form = AuthForm(request.POST)
+#         if form.is_valid():
+#             username = form.cleaned_data['username']
+#             password = form.cleaned_data['password']
+#             user = auth.authenticate(username=username, password=password)
+#             if user != None:
+#                 auth.login(request, user)
+#                 next = request.GET.get('next')
+#                 if next:
+#                     redirect('next')
+#                 return redirect('index')
+#         form.add_error(error="Invalid username and/or password", field="username")
+#         context = {
+#             "form": form
+#         }
+#         return render(request, 'todos/login.html', context)
+#     context = {
+#         'form': AuthForm()
+#     }
+#     return render(request, 'todos/login.html', context)
 
-    
+# def logout(request):
+#     auth.logout(request)
+#     return redirect('index')
