@@ -6,12 +6,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <script src="https://unpkg.com/vue@3"></script> 
     <script defer src="{% static 'app_OSOS/app-OSOS.js' %}"></script>
 </head>
 <body>
     <h1>ok</h1>
+    <a href="{% url 'portfolio:signup' %}">Signup</a>
+    <a href="{% url 'portfolio:login' %}">Login</a>
+    <a href="{% url 'portfolio:logout' %}">Logout</a>
     <div id="app">
     
         <div>[[message]]</div>

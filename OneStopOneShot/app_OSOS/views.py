@@ -79,15 +79,9 @@ def delete_portfolio(request, portfolio_id):
         portfolio.delete()
     return redirect("portfolio:user_profile")
 
-def login(request):
-    # login
-    pass
-
-def logout(request):
-    # logout
-    pass
-
 def signup(request):
+    if not request.user.is_anonymous:
+        return redirect("portfolio:index")
     if request.method == "POST":
         form = AuthForm(request.POST)
         if form.is_valid():
@@ -105,29 +99,29 @@ def signup(request):
     }
     return render(request, 'app_OSOS/signup.html', context)
 
-# def login(request):
-#     if request.method == "POST":
-#         form = AuthForm(request.POST)
-#         if form.is_valid():
-#             username = form.cleaned_data['username']
-#             password = form.cleaned_data['password']
-#             user = auth.authenticate(username=username, password=password)
-#             if user != None:
-#                 auth.login(request, user)
-#                 next = request.GET.get('next')
-#                 if next:
-#                     redirect('next')
-#                 return redirect('index')
-#         form.add_error(error="Invalid username and/or password", field="username")
-#         context = {
-#             "form": form
-#         }
-#         return render(request, 'todos/login.html', context)
-#     context = {
-#         'form': AuthForm()
-#     }
-#     return render(request, 'todos/login.html', context)
+def login(request):
+    if request.method == "POST":
+        form = AuthForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = auth.authenticate(username=username, password=password)
+            if user != None:
+                auth.login(request, user)
+                next = request.GET.get('next')
+                if next:
+                    redirect('next')
+                return redirect('portfolio:index')
+        form.add_error(error="Invalid username and/or password", field="username")
+        context = {
+            "form": form
+        }
+        return render(request, 'app_OSOS/login.html', context)
+    context = {
+        'form': AuthForm()
+    }
+    return render(request, 'app_OSOS/login.html', context)
 
-# def logout(request):
-#     auth.logout(request)
-#     return redirect('index')
+def logout(request):
+    auth.logout(request)
+    return redirect('portfolio:index')

@@ -10,6 +10,8 @@ urlpatterns = [
     path("portfolio/<int:portfolio_id>/", views.display_portfolio, name="display_portfolio"),
     path("deleteportfolio/<int:portfolio_id>/", views.delete_portfolio, name="delete_portfolio"),
     path("updateportfolio/<int:portfolio_id>/", views.update_portfolio, name="update_portfolio"),
-    path("signup/", views.signup, name="signup")
+    path("signup/", views.signup, name="signup"),
+    path("login/", views.login, name="login"),
+    path("logout/", views.logout, name="logout")
 
 ]

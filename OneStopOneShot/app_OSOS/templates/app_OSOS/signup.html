@@ -9,8 +9,8 @@
 <body>
 
 <h1>Signup</h1>
-<p>{{request.user.username}}</p>
-
+<p>Hello, {{request.user.username}}</p>
+<a href="{% url 'portfolio:index' %}">Back to Home</a>
 {% include 'app_OSOS/_form.html' with path="portfolio:signup" button_text="Signup" %}
 </body>
 </html>
