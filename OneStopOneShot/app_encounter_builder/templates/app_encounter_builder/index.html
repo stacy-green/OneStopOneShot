@@ -9,21 +9,59 @@
     <title>Encounters</title>
     <script src="https://unpkg.com/vue@3"></script>
     <script defer src="{% static 'app_encounter_builder/vue-index.js' %}"></script>
+    <style>
+        body {
+            background-image: url("../../../media/images/Parchment1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .encounter-wrapper {
+            text-align: center;
+            display: flex;
+            margin: 2rem 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .encounter-div {
+            margin: 2rem 2rem;
+        }
+        .add-encounter-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem 1rem;
+        }
+        .add-child {
+            margin: 0 1rem;
+        }
+        a {
+            text-decoration: underline;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div>
         <a href="{% url 'portfolio:update_portfolio' portfolio.id %}">Back to Portfolio: {{portfolio.name}}</a>
     </div>
     <div id="app">
-        <div><a href="{% url 'encounter:build_encounter' portfolio.id %}">Add Encounter</a></div>
-        <div>Party Lvls: [[partyString]]</div>
-        <div v-for="(encounter, index) in encountersList">
-            <div>
-                <div><button v-on:click="deleteEncounter(jsondata[index].id)">Del</button> Encounter: <div v-for="monster in encounter">[[monster]], </div></div>
-                <div>EXP: [[jsondata[index].exp]]</div>
-                <div>Adjusted EXP: [[jsondata[index].adjusted_exp]]</div>
-                <div>Difficulty: [[jsondata[index].difficulty]]</div>
-                <br>
+        <div class="add-encounter-div">
+            <div class="add-child add-encounter-link"><a href="{% url 'encounter:build_encounter' portfolio.id %}">Add Encounter</a></div>
+            <div class="add-child">Party Lvls: [[partyString]]</div>
+        </div>
+        <div class="encounter-wrapper">
+            <div class="encounter-div" v-for="(encounter, index) in encountersList">
+                <div>
+                    <div><button v-on:click="deleteEncounter(jsondata[index].id)">Del</button> Encounter: <div v-for="monster in encounter">[[monster]], </div></div>
+                    <div>EXP: [[jsondata[index].exp]]</div>
+                    <div>Adjusted EXP: [[jsondata[index].adjusted_exp]]</div>
+                    <div>Difficulty: [[jsondata[index].difficulty]]</div>
+                    <br>
+                </div>
             </div>
         </div>
     </div>
