@@ -173,7 +173,7 @@
                 {% comment %} Dropdown menu for every available CR. {% endcomment %}
                 <div id="cr-and-monster-dropdown">
                     <div id="cr-dropdown-menu">
-                        <select v-model="selectedCR" v-on:change="elaborateMonsters()">
+                        <select v-model="selectedCR" v-on:change="elaborateMonsters(), displayStatblock()">
                             <option v-for="cr in listCRs" v-bind:value="cr">CR: [[cr]]</option>
                         </select>
                     </div>
@@ -208,15 +208,11 @@
             </div>
         </div>
 {% comment %}  This is the statblock div. It will display the statblock of the currently selected monster. {% endcomment %}
-        {% comment %} <div id="statblock-div">
-            <h1 v-if="statblock.name">[[statblock.name]]</h1>
-            <h3 v-if="statblock.cr">[[statblock.cr]]</h3> {% endcomment %}
-            
             {% comment %} BEGIN STATBLOCK {% endcomment %}
             {% comment %} Code taken from https://tetra-cube.com/dnd/dnd-statblock {% endcomment %}
             <div class="middle-space"></div>
             <div class="right-side">
-                <div class="statblock-wrapper">
+                <div class="statblock-wrapper" >
                     <!-- begin statblock -->
                     <div id="stat-block" class="stat-block">
                         <div>
@@ -309,10 +305,10 @@
                                     <div><b>Challenge: </b>[[statblock.cr]]</div>
                                 </div> <!-- property line -->
                             </div> <!-- top stats -->
-                            <svg height="5" width="100%" class="tapered-rule">
-                                <polyline points="0,0 400,2.5 0,5"></polyline>
-                            </svg>
                             <div v-if="statblock.traits !== ''">
+                                <svg height="5" width="100%" class="tapered-rule">
+                                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                                </svg>
                                 <h4>Traits</h4>
                                 <div>[[statblock.traits]]</div>
                             </div>

@@ -102,11 +102,11 @@ const app = Vue.createApp({
 
         elaborateMonsters: function() {
             this.monsters = []
-            this.selectedMonster = null
             // console.log(this.selectedCR)
             for(let monster of monsters_by_challenge_rating[this.selectedCR]) {
                 this.monsters.push(monster)
             }
+            this.selectedMonster = this.monsters[0]
             // console.log(this.monsters)
         },
 
@@ -262,6 +262,8 @@ const app = Vue.createApp({
         this.enumerateCRs()
         this.elaborateMonsters()
         this.updatePlayer()
+        this.selectedMonster = "Awakened Shrub"
+        this.displayStatblock()
     },
 
 }).mount("#app")
