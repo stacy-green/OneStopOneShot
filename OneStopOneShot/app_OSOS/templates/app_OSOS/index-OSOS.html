@@ -12,9 +12,13 @@
 </head>
 <body>
     <h1>ok</h1>
+    {% if request.user.is_anonymous %}
     <a href="{% url 'portfolio:signup' %}">Signup</a>
+    {% endif %}
+    {% if request.user.is_anonymous %}
     <a href="{% url 'portfolio:login' %}">Login</a>
-    <a href="{% url 'portfolio:logout' %}">Logout</a>
+    {% else %} <a href="{% url 'portfolio:logout' %}">Logout</a>
+    {% endif %}
     <div id="app">
     
         <div>[[message]]</div>
