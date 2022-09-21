@@ -26,7 +26,7 @@ def display_statblock(request):
         selected_monster = request.GET.get("selectedmonster")
         monster_to_return = Monster.objects.filter(name=selected_monster)
         # print(monster_to_return)
-        data = list(monster_to_return.values("name", "cr"))
+        data = list(monster_to_return.values())
         print(data)
         return JsonResponse({"data": data}, safe=False)
 
