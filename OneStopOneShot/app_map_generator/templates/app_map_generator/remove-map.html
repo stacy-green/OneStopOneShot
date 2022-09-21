@@ -9,16 +9,43 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@3"></script>
     <script defer src="{% static 'app_map_generator/delete.js' %}"></script>
+    <style>
+        .battle-map {
+            height: 200px;
+            width: 200px;
+            margin: 0 1rem;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .map-div {
+            display: flex;
+            flex-direction: row;
+            margin: 2rem 2rem;
+            flex-wrap: wrap;
+        }
+        .full-size {
+            text-align: center;
+        }
+        .delete {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>  
-    
+    <a href=" {% url 'portfolio:update_portfolio' portfolio.id%} ">Back to Portfolio</a>
     <div id="app">
-        {% for map in battlemaps %}
-        <div>
-            <img src="../../../media/{{map.img}} " alt="{{map.size}} Map">
-            <button v-on:click="deleteMap({{portfolio.id}},{{map.id}})">Delete</button>
+        <div class="map-div">
+            {% for map in battlemaps %}
+            <div class="maps-div">
+                <div class="full-size"><a href="{% url 'map:detail_map' map.id %}" target="_blank">View Full Size</a></div>
+                <div><img class="battle-map" src="../../../media/{{map.img}} " alt="{{map.size}} Map"></div>
+                <div class="delete"><button v-on:click="deleteMap({{portfolio.id}},{{map.id}})">Delete</button></div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
     
 </body>

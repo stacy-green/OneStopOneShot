@@ -48,3 +48,8 @@ def delete_map(request, portfolio_id):
         portfolio = Portfolio.objects.get(id=portfolio_id)
         battlemap.portfolio.remove(portfolio)
     return redirect("portfolio:update_portfolio", portfolio_id)
+
+def detail_map(request, map_id):
+    battlemap = Map.objects.get(id=map_id)
+    context = {"battlemap": battlemap}
+    return render(request, "app_map_generator/detail-map.html", context)
