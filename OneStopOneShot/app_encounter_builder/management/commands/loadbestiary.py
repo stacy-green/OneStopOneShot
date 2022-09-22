@@ -1,8 +1,6 @@
 from django.core.management.base import BaseCommand
-import random
 from app_encounter_builder.models import Monster
 import csv
-from app_encounter_builder.static.app_encounter_builder import Bestiaries
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):

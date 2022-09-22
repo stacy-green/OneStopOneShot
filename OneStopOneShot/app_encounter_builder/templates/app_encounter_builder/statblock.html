@@ -1,196 +1,174 @@
-<div id="stat-block" class="stat-block">
-    <hr class="orange-border">
-    <div>
-        <div class="creature-heading">
-            <h1 id="monster-name">Adult Red Dragon</h1>
-            <h2 id="monster-type">Huge dragon, chaotic evil</h2>
-        </div> <!-- creature heading -->
+<div class="statblock-wrapper" >
+    <div class="stat-block">
+        <div> <!-- start statblock sub-div -->
+            <div class="creature-heading"> <!-- start creature heading -->
+                <h1 id="monster-name">[[statblock.name]]</h1>
+                <h2 id="monster-type">[[statblock.size]] [[statblock.type]], [[statblock.alignment]]</h2>
+            </div> <!-- end creature heading -->
+            
+            <svg height="5" width="100%" class="tapered-rule">
+                <polyline points="0,0 400,2.5 0,5"></polyline>
+            </svg>
+            
+            <div> <!-- start top stats (ac, hp, etc) -->
+                <div>
+                    <div><b>Armor Class:</b> [[statblock.ac]]</div>
+                </div> 
+                <div>
+                    <div> <b>Hit Points:</b> [[statblock.hp]] </div>
+                </div> 
+                <div class="property-line last">
+                    <div><b>Speed: </b>[[statblock.speed]]</div>
+                </div> 
 
-        <svg height="5" width="100%" class="tapered-rule">
-            <polyline points="0,0 400,2.5 0,5"></polyline>
-        </svg>
+                <svg height="5" width="100%" class="tapered-rule">
+                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                </svg>
 
-        <div class="top-stats">
-            <div class="property-line first">
-                <h4>Armor Class</h4>
-                <p id="armor-class">19 (natural armor)</p>
-            </div> <!-- property line -->
-            <div class="property-line">
-                <h4>Hit Points</h4>
-                <p id="hit-points">256 (19d12 + 133)</p>
-            </div> <!-- property line -->
-            <div class="property-line last">
-                <h4>Speed</h4>
-                <p id="speed">40 ft., climb 40 ft., fly 80 ft.</p>
-            </div> <!-- property line -->
+                <!-- start ability scores -->
+                <div class="scores">
+
+                    <div class="scores-strength">
+                        <h4>STR</h4>
+                        <p id="strpts">[[statblock.strength]] ([[strMod]])</p>
+                    </div> <!-- scores strength -->
+                    
+                    <div class="scores-dexterity">
+                        <h4>DEX</h4>
+                        <p id="dexpts">[[statblock.dexterity]] ([[dexMod]])</p>
+                    </div> <!-- scores dexterity -->
+                    
+                    <div class="scores-constitution">
+                        <h4>CON</h4>
+                        <p id="conpts">[[statblock.constitution]] ([[conMod]])</p>
+                    </div> <!-- scores constitution -->
+                    
+                    <div class="scores-intelligence">
+                        <h4>INT</h4>
+                        <p id="intpts">[[statblock.intelligence]] ([[intMod]])</p>
+                    </div> <!-- scores intelligence -->
+                    
+                    <div class="scores-wisdom">
+                        <h4>WIS</h4>
+                        <p id="wispts">[[statblock.wisdom]] ([[wisMod]])</p>
+                    </div> <!-- scores wisdom -->
+                    
+                    <div class="scores-charisma">
+                        <h4>CHA</h4>
+                        <p id="chapts">[[statblock.charisma]] ([[chaMod]])</p>
+                    </div> <!-- scores charisma -->
+                    
+                </div> <!-- end ability scores -->
+                
+                <svg height="5" width="100%" class="tapered-rule">
+                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                </svg>
+
+                <!-- start saving throws, skills, vulnerabilities etc -->
+                <div id="properties-list">
+                    <div class="property-line first">
+                        <div v-if="statblock.saving_throws !== ''">
+                            <div><b>Saving Throws: </b>[[statblock.saving_throws]]</div> 
+                        </div>
+                    </div>
+                    <div class="property-line">
+                        <div v-if="statblock.skills !== ''">
+                            <div><b>Skills: </b>[[statblock.skills]]</div>
+                        </div>
+                    </div>
+                    <div v-if="statblock.damage_vulnerabilities !== ''">
+                        <div><b>Damage Vulnerabilities: </b>[[statblock.damage_vulnerabilities]]</div>
+                    </div>
+                    <div v-if="statblock.damage_resistances !== ''">
+                        <div><b>Damage Resistances: </b>[[statblock.damage_resistances]]</div>
+                    </div>
+                    <div class="property-line">
+                        <div v-if="statblock.damage_immunities !== ''">
+                            <div><b>Damage Immunities: </b>[[statblock.damage_immunities]]</div> 
+                        </div>
+                    </div>
+                    <div v-if="statblock.condition_immunities !== ''">
+                        <div><b>Condition Immunities: </b>[[statblock.condition_immunities]]</div>
+                    </div>
+                    <div class="property-line">
+                        <div v-if="statblock.senses !== ''">
+                            <div><b>Senses: </b>[[statblock.senses]]</div>
+                        </div>
+                    </div>
+                    <div class="property-line">
+                        <div v-if="statblock.languages !== ''">
+                            <div><b>Languages: </b>[[statblock.languages]]</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="challenge-rating-line" class="property-line last">
+                    <div><b>Challenge: </b>[[statblock.cr]]</div>
+                </div> <!-- end saves, skils, etc -->
+            </div> <!-- end top stats -->
+            <div v-if="statblock.traits !== ''"> <!-- start traits -->
+
+                <svg height="5" width="100%" class="tapered-rule">
+                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                </svg>
+
+                <h4>Traits</h4>
+                <div>[[statblock.traits]]</div>
+            </div> <!-- end traits -->
 
             <svg height="5" width="100%" class="tapered-rule">
                 <polyline points="0,0 400,2.5 0,5"></polyline>
             </svg>
-
-            <div class="scores">
-                <div class="scores-strength">
-                    <h4>STR</h4>
-                    <p id="strpts">27 (+8)</p>
-                </div> <!-- scores strength -->
-                <div class="scores-dexterity">
-                    <h4>DEX</h4>
-                    <p id="dexpts">10 (+0)</p>
-                </div> <!-- scores dexterity -->
-                <div class="scores-constitution">
-                    <h4>CON</h4>
-                    <p id="conpts">25 (+7)</p>
-                </div> <!-- scores constitution -->
-                <div class="scores-intelligence">
-                    <h4>INT</h4>
-                    <p id="intpts">16 (+3)</p>
-                </div> <!-- scores intelligence -->
-                <div class="scores-wisdom">
-                    <h4>WIS</h4>
-                    <p id="wispts">13 (+1)</p>
-                </div> <!-- scores wisdom -->
-                <div class="scores-charisma">
-                    <h4>CHA</h4>
-                    <p id="chapts">21 (+5)</p>
-                </div> <!-- scores charisma -->
-            </div> <!-- scores -->
-
-            <svg height="5" width="100%" class="tapered-rule">
-                <polyline points="0,0 400,2.5 0,5"></polyline>
-            </svg>
-
-            <div id="properties-list">
-                <div class="property-line first">
+            
+            <div class="actions"> <!-- start actions -->
+                <div id="traits-list-left">
+                    <h3>Actions</h3>
+                <div class="property-block">
                     <div>
-                        <h4>Saving Throws</h4> 
-                        <p>Dex +6, Con +13, Wis +7, Cha +11
-                        </p>
+                        [[statblock.actions]]
                     </div>
-                </div><!-- property line -->
-                <div class="property-line">
-                    <div>
-                        <h4>Skills</h4> 
-                        <p>Perception +13, Stealth +6
-                        </p>
-                    </div>
-                </div><!-- property line -->
-                <div class="property-line">
-                    <div>
-                        <h4>Damage Immunities</h4> 
-                        <p>fire
-                        </p>
-                    </div>
-                </div><!-- property line -->
-                <div class="property-line">
-                    <div>
-                        <h4>Senses</h4> 
-                        <p>blindsight 60 ft., darkvision 120 ft., passive Perception 23
-                        </p>
-                    </div>
-                </div><!-- property line -->
-                <div class="property-line">
-                    <div><h4>Languages</h4> 
-                        <p>Common, Draconic
-                        </p>
-                    </div>
-                </div><!-- property line -->
+                </div> 
+                </div> 
+            </div> 
+            <div v-if="statblock.bonus_actions !== ''">
+                <h4>Bonus Actions</h4>
+                <div>[[statblock.bonus_actions]]</div>
             </div>
-            <div id="challenge-rating-line" class="property-line last">
-                <h4>Challenge</h4>
-                <p id="challenge-rating">17 (18,000 XP)
-                </p>
-            </div> <!-- property line -->
-        </div> <!-- top stats -->
-
-        <svg height="5" width="100%" class="tapered-rule">
-            <polyline points="0,0 400,2.5 0,5"></polyline>
-        </svg>
-
-        <div class="actions">
-            <div id="traits-list-left">
-                <div class="property-block">
-                    <div><h4>Legendary Resistance (3/Day).</h4>
-                        <p> If the dragon fails a saving throw, it can choose to succeed instead.
-                        </p>
-                    </div>
-                </div> <!-- property block -->
-                <h3>Actions</h3>
-                <hr class="separator">
-                <div class="property-block">
-                    <div>
-                        <h4>Multiattack.</h4>
-                        <p> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.
-                        </p>
-                    </div>
-                </div> <!-- property block -->
-                <div class="property-block">
-                    <div>
-                        <h4>Bite.</h4>
-                        <p> 
-                            <i>Melee Weapon Attack:</i> +14 to hit, reach 10 ft., one target. <i>Hit:</i> 19 (2d10 + 8) piercing damage plus 7 (2d6) fire damage.
-                        </p>
-                    </div>
-                </div> <!-- property block -->
-                <div class="property-block">
-                    <div>
-                        <h4>Claw.</h4>
-                        <p> <i>Melee Weapon Attack:</i> +14 to hit, reach 5 ft., one target. <i>Hit:</i> 15 (2d6 + 8) slashing damage.
-                        </p>
-                    </div>
-                </div> <!-- property block -->
+            <div v-if="statblock.reactions !== ''">
+                <h4>Reactions</h4>
+                <div>[[statblock.reactions]]</div>
             </div>
-        </div> 
-        <!-- actions -->
-        <div class="actions">
-            <div id="traits-list-right">
-                <div class="property-block">
-                    <div>
-                        <h4>Tail.</h4>
-                        <p> <i>Melee Weapon Attack:</i> +14 to hit, reach 15 ft., one target. <i>Hit:</i> 17 (2d8 + 8) bludgeoning damage.
-                        </p>
+            <div class="actions">
+                <div v-if="statblock.legendary_action !== ''">
+                    <svg height="5" width="100%" class="tapered-rule">
+                        <polyline points="0,0 400,2.5 0,5"></polyline>
+                    </svg>
+                    <h3>Legendary Actions</h3>
+                    <div class="property-block">[[statblock.legendary_action]]
                     </div>
-                </div> <!-- property block -->
-                <div class="property-block">
-                    <div>
-                        <h4>Frightful Presence.</h4>
-                        <p> Each creature of the dragon's choice that is within 120 ft. of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.
-                        </p>
-                    </div>
-                </div> <!-- property block -->
-                <div class="property-block">
-                    <div>
-                        <h4>Fire Breath (Recharge 5-6).</h4>
-                        <p> The dragon exhales fire in a 60-foot cone. Each creature in that area must make a DC 21 Dexterity saving throw, taking 63 (18d6) fire damage on a failed save, or half as much damage on a successful one.
-                        </p>
-                    </div>
-                </div> <!-- property block -->
-            <h3>Legendary Actions</h3>
-            <hr class="separator">
-            <div class="property-block">The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.
+                </div>
+                <div v-if="statblock.lair_actions !== ''">
+                    <svg height="5" width="100%" class="tapered-rule">
+                        <polyline points="0,0 400,2.5 0,5"></polyline>
+                    </svg>
+                    <h4>Lair Actions</h4>
+                    <div>[[statblock.lair_actions]]</div>
+                </div>
+            </div> <!-- end actions -->
+            <div v-if="statblock.regional_effects !== ''"> <!-- start regional effects and environements -->
+                <svg height="5" width="100%" class="tapered-rule">
+                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                </svg>
+                <h4>Regional Effects</h4>
+                <div>[[statblock.regional_effects]]</div>
             </div>
-            <br>
-            <div class="property-block reverse-indent legendary">
-                <div>
-                    <h4>Detect.</h4>
-                    <p> The dragon makes a Wisdom (Perception) check.
-                    </p>
-                </div>
-            </div> <!-- property block -->
-            <div class="property-block reverse-indent legendary">
-                <div>
-                    <h4>Tail Attack.</h4>
-                    <p> The dragon makes a tail attack.
-                    </p>
-                </div>
-            </div> <!-- property block -->
-            <div class="property-block reverse-indent legendary">
-                <div>
-                    <h4>Wing Attack (Costs 2 Actions).</h4>
-                    <p> The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.
-                    </p>
-                </div>
-            </div> <!-- property block --></div>
-        </div> <!-- actions -->
-    </div> <!-- section right -->
-    <hr class="orange-border bottom">
-</div>
+            <div v-if="statblock.environment !== ''">
+                <svg height="5" width="100%" class="tapered-rule">
+                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                </svg>
+                <h4>Environments</h4>
+                <div>[[statblock.environment]]</div>
+                <hr class="bottom-statblock">
+            </div> <!-- end regional effects and environments -->
+        </div> <!-- end statblock sub-div -->
+    </div> <!-- end statblock -->
+</div> <!-- end statblock wrapper -->
