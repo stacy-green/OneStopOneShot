@@ -18,8 +18,11 @@ def index(request):
 
 def create_villain(request, portfolio_id):
     portfolio = Portfolio.objects.get(id=portfolio_id)
-    context = {"portfolio": portfolio}
-    return render(request, "app_setting_generator/create-villain.html", context)
+    if portfolio.user == request.user:
+        context = {"portfolio": portfolio}
+        return render(request, "app_setting_generator/create-villain.html", context)
+    else:
+        return redirect("portfolio:user_profile")
 
 def save_villain(request, portfolio_id):
     if request.method == "POST":
