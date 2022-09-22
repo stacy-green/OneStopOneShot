@@ -4,7 +4,8 @@ import json
 from django.contrib import auth
 from app_OSOS.models import Portfolio
 from .models import Map
-# Create your views here.
+
+###########################################################################################################
 
 def index(request, portfolio_id):
     portfolio = Portfolio.objects.get(id=portfolio_id)
@@ -37,10 +38,8 @@ def save_map(request, portfolio_id):
 
 def remove_map(request, portfolio_id):
     battlemaps = list(Map.objects.filter(portfolio=portfolio_id))
-    # print(battlemaps)
     portfolio = Portfolio.objects.get(id=portfolio_id)
     if portfolio.user == request.user:
-    # print(portfolio)
         context = {
             "portfolio": portfolio,
             "battlemaps": battlemaps

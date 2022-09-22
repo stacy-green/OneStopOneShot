@@ -11,7 +11,6 @@ from .forms import NewPortfolioForm, AuthForm
 ######################################################################################################
 
 def index(request):
-    # display project overview
     return render(request, "app_OSOS/index-OSOS.html")
 
 def user_profile(request):
@@ -58,20 +57,6 @@ def update_portfolio(request, portfolio_id):
         return render(request, "app_OSOS/update-portfolio.html", context)
     else:
         return redirect("portfolio:user_profile")
-
-def display_portfolio(request, portfolio_id):
-    portfolio = Portfolio.objects.get(id=portfolio_id)
-    stuff = ''
-    if portfolio.user == request.user:
-        context = {
-            "portfolio": stuff
-        }
-    # get all things associated with portfolio
-    # delete portfolio
-    context = {
-
-    }
-    return render(request, "app_OSOS/portfolio.html", context)
 
 def delete_portfolio(request, portfolio_id):
     portfolio = Portfolio.objects.get(id=portfolio_id)
@@ -125,3 +110,19 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('portfolio:index')
+
+##########################################################################################################
+""" Currently unused """
+# def display_portfolio(request, portfolio_id):
+#     portfolio = Portfolio.objects.get(id=portfolio_id)
+#     stuff = ''
+#     if portfolio.user == request.user:
+#         context = {
+#             "portfolio": stuff
+#         }
+#     context = {
+
+#     }
+#     return render(request, "app_OSOS/portfolio.html", context)
+
+""" I may work on this view in the future to make a portfolio easier to download or export """

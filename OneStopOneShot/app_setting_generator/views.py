@@ -64,30 +64,8 @@ def delete_villain(request, villain_id):
         villain.delete()
     return redirect("portfolio:update_portfolio", portfolio)
 
-def create_NPC(request):
+###########################################################################################################
+""" Currently unused. I may create an NPC generator sometime in the future """
+# def create_NPC(request):
 
-    return
-
-
-# Villain
-#     first_name = models.CharField(max_length=255)
-#     last_name = models.CharField(max_length=255)
-#     race = models.CharField(max_length=255)
-#     villain_type = models.CharField(max_length=255)
-#     organization
-#     motivations = models.CharField(max_length=255)
-#     secret = models.CharField(max_length=255)
-#     fear = models.CharField(max_length=255)
-#     life_event = models.CharField(max_length=255)
-
-# NPC
-    # first_name = models.CharField(max_length=255)
-    # last_name = models.CharField(max_length=255)
-    # race = models.CharField(max_length=255)
-    # character_class = models.CharField(max_length=255)
-    # background = models.CharField(max_length=255)
-    # personality_1 = models.CharField(max_length=255)
-    # personality_2 = models.CharField(max_length=255)
-    # ideal = models.CharField(max_length=255)
-    # bond = models.CharField(max_length=255)
-    # flaw = models.CharField(max_length=255)
+#     return

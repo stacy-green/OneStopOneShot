@@ -7,10 +7,6 @@ from app_OSOS.models import Portfolio
 
 ########################################################################################################
 
-def test123(request):
-
-    return render(request, "app_encounter_builder/adult_red_dragon.html")
-
 def index(request, portfolio_id):
     portfolio = Portfolio.objects.get(id=portfolio_id)
     if portfolio.user == request.user:
@@ -18,8 +14,6 @@ def index(request, portfolio_id):
         return render(request, "app_encounter_builder/index.html", context)
     else:
         return redirect("portfolio:user_profile")
-
-    
 
 def build_encounter(request, portfolio_id):
     portfolio = Portfolio.objects.get(id=portfolio_id)
@@ -61,8 +55,6 @@ def load_encounter(request, portfolio_id):
     user = request.user
     encounters = Encounter.objects.filter(portfolio=portfolio_id)
     data = list(encounters.values("monsters", "party", "exp", "adjusted_exp", "difficulty", "id"))
-    # data = list(encounters.values())
-    # print(data)
     return JsonResponse({"data": data}, safe=False)
 
 def delete_encounter(request, portfolio_id, encounter_id):
