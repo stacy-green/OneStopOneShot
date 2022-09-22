@@ -88,7 +88,7 @@ def signup(request):
             user = User.objects.create_user(username=form.cleaned_data['username'], password=form.cleaned_data['password']
             )
             auth.login(request, user)
-            return render(request, 'app_OSOS/signup.html')
+            return redirect("portfolio:index")
         else:
             context = {
                 'form': form
