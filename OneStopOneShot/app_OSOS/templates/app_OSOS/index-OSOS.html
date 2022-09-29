@@ -39,6 +39,26 @@
             font-size: 2rem;
             margin: 2rem 2rem;
         }
+        .small {
+            width: 200px;
+            height: 200px;
+        }
+        .medium {
+            width: 400px;
+            height: 400px;
+        }
+        .large {
+            width: 1200px;
+            height: 600px;
+        }
+        .small-img-div {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .medium-img-div {
+            display: flex;
+            justify-content: space-evenly;
+        }
     </style>
 </head>
 <body>
@@ -63,32 +83,43 @@
         <p class="about">
             One-shots are tabletop role playing game scenarios that are concluded in a single session. When last minute emergencies or scheduling conflicts prevent a group of tabletop gamers from playing their usual campaign, OSOS will allow them to quickly build a replacement scenario to play instead.
         </p>
-        <hr class="section-divider">
         <div class="walkthrough">
             <p class="instructions">Using OSOS is simple. Just follow these steps.</p>
-            <div>
-                <div class="instructions">1. Signup or login and go to your profile</div>
-            </div>
-            <div>
-                <div class="instructions">2. Create a new portfolio</div>
-                <div> <img src="media/images/screenshots/Portfolio.png" alt=""> </div>
+            <div class="small-img-div">
+                <div>
+                    <div class="instructions">1. Signup or Login</div>
+                    <div> <img class="small" src="media/images/screenshots/Signup.png" alt=""></div>
+                </div>
+                <div>
+                    <div class="instructions">2. Go to Profile</div>
+                    <div> <img class="small" src="media/images/screenshots/Profile.png" alt=""> </div>
+                </div>
             </div>
 
             <div>
-                <div class="instructions">3. Create a villain/antagonist using the Villain Generator</div>
-                <div> <img src="media/images/screenshots/Villain.png" alt=""> </div>
+                <div class="instructions">3. Go to new Portfolio</div>
+                <div> <img class="large" src="media/images/screenshots/Portfolio.png" alt=""></div>
             </div>
-            <div>
-                <div class="instructions">4. Create combat encounters using the Encounter Builder</div>
-                <div> <img src="media/images/screenshots/Encounter.png" alt=""> </div>
+
+            <div class="medium-img-div">
+                <div>
+                    <div class="instructions">4. Create a villain/antagonist using the Villain Generator</div>
+                    <div> <img class="medium" src="media/images/screenshots/CreateVillain.png" alt=""> </div>
+                </div>
+                <div>
+                    <div class="instructions">5. Select a battlemap or battlemaps with the Map Generator</div>
+                    <div> <img class="medium" src="media/images/screenshots/GetMap.png" alt=""> </div>
+                </div>
             </div>
+
             <div>
-                <div class="instructions">5. Select a battlemap or battlemaps with the Map Generator</div>
-                <div> <img src="media/images/screenshots/Fullmap.png" alt=""> </div>
+                <div class="instructions">6. Create combat encounters using the Encounter Builder</div>
+                <div> <img class="large" src="media/images/screenshots/EncounterBuilder.png" alt=""> </div>
             </div>
+            
             <div>
-                <div class="instructions">6. Enjoy your completed portfolio!</div>
-                <div><img src="media/images/screenshots/Completedportfolio.png" alt=""></div>
+                <div class="instructions">7. Enjoy your completed portfolio!</div>
+                <div><img class="large" src="media/images/screenshots/FinishedPortfolio.png" alt=""></div>
             </div>
         </div>
     </div>
