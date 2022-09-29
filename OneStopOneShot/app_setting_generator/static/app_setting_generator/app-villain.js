@@ -271,7 +271,7 @@ const app = Vue.createApp({
                 this.hasNames = true
             } else {
                 this.hasNames = false
-                this.message = `${this.race} has no prepared names. Use other names?`
+                this.message = `${this.race} has no prepared names.`
             }
             
         },
