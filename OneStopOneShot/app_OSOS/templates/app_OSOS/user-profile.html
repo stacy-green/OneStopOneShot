@@ -36,10 +36,15 @@
     </style>
 </head>
 <body>
-    
     <div id="new-portfolio-div">
         <a href="{% url 'portfolio:index' %}">Back to Home</a>
-        <h1>New Portfolio</h1>
+        <h1>Protfolios: </h1>
+        <div id="portfolios-div">
+            {% for portfolio in data %}
+            <div><a href="{% url 'portfolio:update_portfolio' portfolio.id %}">{{portfolio.name}}</a></div>
+            {% endfor %}
+        </div>
+    
         <form action="{% url 'portfolio:create_portfolio' %}" method="POST">
             {% csrf_token %}
             <div><input type="text" name="name" placeholder="Enter portfolio name"></div>
@@ -47,11 +52,6 @@
         </form>
     </div>
     
-    <div id="portfolios-div">
-        {% for portfolio in data %}
-        <div><a href="{% url 'portfolio:update_portfolio' portfolio.id %}">{{portfolio.name}}</a></div>
-        {% endfor %}
-    </div>
 
 </body>
 </html>
